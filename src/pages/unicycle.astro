@@ -1,0 +1,464 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { Image } from "@astrojs/image/components";
+import { getImage } from "@astrojs/image";
+// import scooter from "../../public/images/unicycle-scooter.svg";
+
+const hero = await getImage({
+  src: "../../public/images/unicycle-hero.png",
+  width: 3000,
+  height: 1600,
+  aspectRatio: 16 / 9,
+  format: "jpeg",
+});
+
+const main = await getImage({
+  src: "../../public/images/unicycle-main.jpg",
+  width: 3000,
+  height: 1800,
+  aspectRatio: 16 / 9,
+  format: "jpeg",
+});
+
+const userpersona = await getImage({
+  src: "../../public/images/unicycle-userpersona.png",
+  width: 3000,
+  height: 2400,
+  // aspectRatio: 1 / 1,
+  format: "jpeg",
+});
+
+const scooter = await getImage({
+  src: "../../public/images/unicycle-scooter.png",
+  width: 1000,
+  height: 1000,
+  aspectRatio: 1 / 1,
+  format: "webp",
+});
+
+const researchAnalysis = await getImage({
+  src: "../../public/images/unicycle-research-analysis.png",
+  width: 3000,
+  height: 1600,
+  aspectRatio: 16 / 9,
+  format: "jpeg",
+});
+
+const unicycleHero = await getImage({
+  src: "../../public/images/unicycle-logo-black.png",
+  height: 120,
+  width: 300,
+  aspectRatio: 16 / 9,
+  format: "webp",
+  background: "white",
+});
+---
+
+<Layout class="text-neutral-800 font-sanchez bg-[#f6eff3]">
+  <main class="relative flex flex-col min-h-screen items-center justify-center">
+    <Image src={unicycleHero} alt="hero" class="" />
+
+    <div
+      class="relative pt-4 px-2 text-8xl font-black max-w-8xl text-center text-slate-800"
+    >
+      <div class="">Improving micro-mobility</div>
+      <div class="mt-[3px]">
+        services in <span
+          class="bg-gradient-to-r from-[#4D47C6] to-[#2FD6CC] bg-clip-text text-transparent"
+        >
+          New York City</span
+        >
+      </div>
+    </div>
+    <p class="text-4xl text-slate-800 mt-10">
+      Mobile application and landing page design
+    </p>
+  </main>
+
+  <Image src={hero} alt="hero" class="" aspectRatio="16/9" />
+
+  <section class="mx-auto max-w-5xl">
+    <h1 class="">
+      Project
+      <p class="">Scope</p>
+    </h1>
+    <article>
+      <h2 class="">The Challenge</h2>
+      <p class="">
+        While there are many options for micro-mobility services, their products
+        can have a high barrier of entry (you need to create an account and set
+        up payment for each service you’d like to use), they often don’t address
+        road-safety concerns (once you access the device, you don’t necessarily
+        get guidance on where you’re going and how to get there safely). Every
+        app has different use patterns, so it can be confusing to toggle between
+        services to understand how they work.
+      </p>
+      <h2 class="">The Opportunity</h2>
+      <p class="">
+        Through Unicycle, we wanted to create a service where users of
+        micro-mobility devices can more easily see available vehicles in their
+        area, and feel more comfortable on the roads.
+      </p>
+      <h2 class="">My Role</h2>
+      <p class="">
+        As part of a group project, my contributions were associated with User
+        Research, and app interface design.
+      </p>
+    </article>
+  </section>
+
+  <!-- <section class="relative w-screen bg-unicyclePrimary/50">
+    <article class="max-w-5xl mx-auto px-6">
+      <h2 class="">The Process</h2>
+      <div class="grid grid-cols-2">
+        <div class="">
+          <li>Brief</li>
+          <li>Methodology</li>
+          <li>User Research</li>
+          <li>Research Insights</li>
+          <li>User Empathy map</li>
+          <li>The Proto-Persona Method</li>
+          <li>User Story</li>
+          <li>Competitive Analysis</li>
+          <li>Problem Statement</li>
+          <li>User Persona</li>
+          <li>Feature Analysis</li>
+          <li>User Flow</li>
+          <li>Low-Fidelity sketches</li>
+          <li>Mid-Fidelity Prorotype</li>
+          <li>Usability Tests</li>
+          <li>Moodboard</li>
+          <li>High-Fidelity Prototype</li>
+          <li>Landing page</li>
+          <li>Future Development</li>
+        </div>
+        <div class="list-none">
+          <li>Setting the tasks</li>
+          <li>Define methodology for user research</li>
+          <li>Interviewing the target audience</li>
+          <li>Analyze user interviews results</li>
+          <li>Empathizing with the target user</li>
+          <li>Create a collective image of the target audience</li>
+          <li>Define the users tasks that needs to be solved</li>
+          <li>Analyze competitors, prepare a summary analysis</li>
+          <li>Identify problem statement</li>
+          <li>Create a detailed image of the user persona</li>
+          <li>Create a feature prioritization matrix</li>
+          <li>Create user flow</li>
+          <li>Crazy 8 activity</li>
+          <li>Create mid-fidelity prototype</li>
+          <li>Conduct usability tests</li>
+          <li>Inspirations</li>
+          <li>Create style guide</li>
+          <li>Create high-fidelity prototype</li>
+          <li>List features that needs to be developed</li>
+        </div>
+      </div>
+    </article>
+
+  </section> -->
+
+  <section class="relative max-w-5xl mx-auto">
+    <Image
+      src={scooter}
+      alt="scooter"
+      class="absolute -bottom-48 right-4 z-[-8] w-max py-8"
+    />
+    <h1 class="text-unicyclePrimary text-8xl">
+      User
+      <p class="text-slate-800">Research</p>
+    </h1>
+
+    <article>
+      <h2 class="">Research Methodology</h2>
+      <p class="">
+        As a method of qualitative research was chosen, one-on-one interviews
+        with the targeted audience were conducted.
+      </p>
+      <p
+        class="font-bold bg-gradient-to-r from-[#6d45df] to-[#e6575a] bg-clip-text text-transparent"
+      >
+        Why?
+      </p>
+      <p class="">
+        A qualitative type of research was chosen because quantitative research
+        in this step of the process won’t give necessary answers and won’t
+        provide answers to the following questions:
+      </p>
+      <li class="">
+        What problems do users face when they want to use a micro-mobility
+        service?
+      </li>
+      <li class="">What product should I create?</li>
+      <li class="">
+        What is important to users when they use micro-mobility services?
+      </li>
+      <li class="">And how to solve these problems?</li>
+      <p>
+        Interviews, in this case, are much more effective than surveys, as they
+        provide an opportunity to collect in-depth information about people’s
+        opinions, thoughts, experiences, and feelings.
+      </p>
+      <h2 class="">Research Goals</h2>
+      <p>
+        Imbued with the user experience and understand their pain points and
+        needs.
+      </p>
+      <h2 class="">Research Question</h2>
+      <p>
+        To learn about users' interests, goals, and desires related to
+        micro-mobility services.
+      </p>
+      <h2 class="">Research Objectives</h2>
+      <li class="">
+        Uncover participants' attitudes towards and thought processes around
+        utilizing micro-mobility services
+      </li>
+      <li class="">
+        Understand the process, and tools participants use for accessing
+        information about what micro-mobility services are in their
+        area/available.
+      </li>
+      <h2 class="">Interview Format</h2>
+      <p>Interviews were conducted via Zoom and in person.</p>
+      <h2 class="">Information about Respondents</h2>
+      <p>The respondents’ names were changed to ensure confidentiality.</p>
+      <p>
+        We identified a group of potential representatives of the target
+        audience who need to be involved in the interview:
+      </p>
+      <li class="">
+        People who are already using the micro-mobility services, but have some
+        hesitations about them
+      </li>
+    </article>
+  </section>
+
+  <section class="max-w-5xl mx-auto">
+    <h1 class="text-unicyclePrimary text-8xl">
+      Research
+      <p class="text-slate-800">Analysis</p>
+    </h1>
+
+    <!-- <h2 class="">Research Insights</h2> -->
+
+    <Image
+      src={researchAnalysis}
+      alt="research-analysis"
+      class="pt-12 w-max rounded-md"
+    />
+    <article class="">
+      <h2 class="pt-10">User Insights</h2>
+      <li>
+        Users expressed interest in a micro-mobility service that would remove
+        high barriers to entry (making it easier to sign up and use more
+        services more casually).
+      </li>
+      <li>
+        Users have safety concerns, citing the lack of dedicated bike lanes,
+        erratic driving, and worries about not having a helmet as significant
+        deterrents to using micro-mobility services.
+      </li>
+      <li>
+        Users are concerned about how much effort it takes to be situationally
+        aware of both safety and where they are and need to go.
+      </li>
+      <li>Users like to ride for health and pleasure!</li>
+      <li>Users opt for low-cost transportation options.</li>
+
+      <h2 class="">User Empathy Map</h2>
+      <p>
+        A user empathy map was created to consolidate the results of the
+        interviews and identify pain points.
+      </p>
+    </article>
+  </section>
+
+  <div class="max-w-6xl mx-auto">
+    <div
+      class="grid grid-cols-2 content-center grid-flow-row gap-4 [&>*]:rounded-md [&>div]:prose-sm [&>div]:p-7"
+    >
+      <div class="bg-teal-200">
+        <h2 class="text-unicycleSecondary">Says</h2>
+        <li>
+          “I have to juggle all these different apps, subscriptions, and payment
+          methods! I just want to find a ride and hop on.”
+        </li>
+        <li>
+          “Sometimes I get a bike or scooter that dies on me, so I end up taking
+          a car anyway, which defeats the purpose of trying to reduce my carbon
+          footprint and save money.”
+        </li>
+      </div>
+
+      <div class="bg-teal-200">
+        <h2 class="text-unicycleSecondary">Thinks</h2>
+        <li>
+          Micro-mobility options are a great way to incorporate exercise into
+          travel, so he doesn’t have to carve out dedicated time in his
+          schedule.
+        </li>
+        <li>
+          It’s unfortunate that micro-mobility options are not very functional
+          during the winter months.
+        </li>
+        <li>
+          It would be nice if he could plan a route that is customized for
+          micro-mobility options so he feels prepared to embark on his trip.
+        </li>
+      </div>
+
+      <div class="bg-unicycleSecondary/80 text-white">
+        <h2 class="text-unicyclePrimary">Does</h2>
+        <li>Commutes between three boroughs for school, work, and home</li>
+        <li>
+          Tries to do little things to be eco-friendly (e.g., use less plastic,
+          reduce carbon footprint, etc.)
+        </li>
+        <li>
+          Forced into using ride-share apps like Lyft/Uber when in a rush and
+          checking for micro-mobility options while mapping the route is taking
+          too long.
+        </li>
+      </div>
+      <div class="bg-unicycleSecondary/80 text-white">
+        <h2 class="text-unicyclePrimary">Feels</h2>
+        <li>
+          Mentally exhausted from being hypervigilant while on the road with a
+          micro-mobility device.
+        </li>
+        <li>
+          Frazzled from juggling multiple micro-mobility apps and keeping track
+          of payment methods/subscriptions
+        </li>
+        <li>
+          Frustrated at NYC’s public transportation system because of unexpected
+          and frequent delays
+        </li>
+      </div>
+      <!-- <div>
+        <h1 class="text-unicycleSecondary text-3xl font-regular">
+          Pain-Points
+        </h1>
+        <p class="pt-4 leading-relaxed">
+          <ul class="flex flex-col gap-4">
+            <li>• He doesn’t like to depend on public transportation.</li>
+            <li>• He doesn’t feel safe riding subways at night.</li>
+            <li>
+              • Has to travel to school and work from home but doesn’t have
+              access to a common subway line.
+            </li>
+            <li>
+              • Doesn’t want to buy/own a bike (no indoor storage and concerns
+              about theft).
+            </li>
+          </ul>
+        </p>
+      </div> -->
+    </div>
+  </div>
+
+  <!-- <div class="max-w-7xl mx-auto">
+    <div
+      class="grid grid-cols-2 grid-flow-row gap-6 [&>*]:rounded-md [&>*]:p-7"
+    >
+      <div class="relative row-span-2">
+        <Image
+          src={userpersona}
+          alt="hero"
+          class="relative rounded-md"
+          aspectRatio="1/1"
+        />
+        <div
+          class="absolute inset-4 flex flex-col gap-3 items-center justify-center text-white"
+        >
+          <h2 class="text-6xl font-semibold">Daniel Howard</h2>
+          <p class="text-3xl">32 years old</p>
+          <p class="text-3xl">Queens, NY</p>
+          <p class="text-3xl">Student Teacher</p>
+        </div>
+      </div>
+      <div class="bg-teal-200 prose">
+        <h2 class="text-unicycleSecondary">About</h2>
+        <p class="">
+          Daniel is completing his Master’s degree in education while teaching
+          at a public school. The school where he is getting his degree is on
+          the Upper West Side, while the school he teaches at is in Brooklyn and
+          nowhere near a subway. He lives in Queens. He has a hectic schedule
+          traveling back and forth between three boroughs throughout the week.
+          Because of his busy schedule, he needs as many transportation options
+          as possible.
+        </p>
+      </div>
+      <div class="bg-unicycleSecondary/80 prose text-white">
+        <h2 class="text-unicyclePrimary">Interests</h2>
+        <li>
+          Enjoys exploring the different boroughs of NYC during his limited free
+          time.
+        </li>
+        <li>
+          Cares about fitness/exercise; enjoys working out and views
+          micro-mobility options as a great way to exercise that does not take
+          up time in his busy schedule.
+        </li>
+        <li>
+          Cares about the environment/climate change and tries to do little
+          things to decrease his carbon footprint; he would like to use
+          micro-mobility options more.
+        </li>
+      </div>
+      <div>
+        <h1 class="text-unicycleSecondary text-3xl font-regular">
+          Pain-Points
+        </h1>
+        <p class="pt-4 leading-relaxed">
+          <ul class="flex flex-col gap-4">
+            <li>• He doesn’t like to depend on public transportation.</li>
+            <li>• He doesn’t feel safe riding subways at night.</li>
+            <li>
+              • Has to travel to school and work from home but doesn’t have
+              access to a common subway line.
+            </li>
+            <li>
+              • Doesn’t want to buy/own a bike (no indoor storage and concerns
+              about theft).
+            </li>
+          </ul>
+        </p>
+      </div>
+    </div>
+  </div> -->
+
+  <style>
+    section {
+      @apply px-6 py-20;
+    }
+
+    article {
+      @apply prose prose-slate  max-w-none md:prose-base lg:prose-lg;
+    }
+
+    h1 {
+      @apply text-8xl text-unicyclePrimary;
+    }
+
+    h1 p {
+      @apply text-slate-800;
+    }
+
+    /* p {
+    @apply prose prose-slate  pt-4 md:prose-lg lg:prose-xl;
+  } */
+
+    /* h1 {
+    @apply prose text-2xl font-semibold;
+  }
+  h2 {
+    @apply text-lg font-semibold underline decoration-unicyclePrimary decoration-2;
+  }
+
+  li {
+    @apply prose prose-slate ml-3 pt-2   md:prose-lg lg:prose-xl;
+  } */
+  </style>
+</Layout>

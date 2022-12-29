@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1,
+    "title": "Unicycle",
+    "tags": ["Mobile", "Figma", "Miro", "Illustrator"],
+    "description": "Here’s how we helped users of micro-mobility services more easily see available vehicles in their area and feel more comfortable on the roads.",
+    "image": {
+      "src": "/assets/showcase_unicycle.jpg",
+      "alt": "unicycle"
+    },
+    "url": {
+      "href": "x",
+      "text": "Learn more about micro-mobility services"
+    },
+    "dateCreated": "10/1/2022",
+    "background": {
+      "src": "/assets/bg-mesh-grad-1.png",
+      "alt": "bg-mesh-1"
+    }
+  },
+  {
+    "id": 2,
+    "title": "Community Fridges",
+    "tags": ["Mobile", "Desktop", "Figma", "Miro", "FigJam"],
+    "description": "What’s in your fridge? We increased NYC community engagement by making food donations easy and convenient.",
+    "image": {
+      "src": "/assets/work_unicycle.png",
+      "alt": "unicycle"
+    },
+    "url": {
+      "href": "x",
+      "text": "Learn more about micro-mobility services"
+    },
+    "dateCreated": "10/1/2022",
+    "background": {
+      "src": "/assets/bg-mesh-grad-1.png",
+      "alt": "bg-mesh-1"
+    }
+  }
+]

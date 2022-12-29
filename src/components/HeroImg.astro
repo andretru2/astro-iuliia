@@ -1,0 +1,74 @@
+---
+import { Image, Picture } from "@astrojs/image/components";
+// import heroImg from "@assets/Hero_iuliia_v4.png";
+import heroImg from "@images/heroimg.png";
+// import heroImg from "@images/Me6.png";
+
+// const hero = await getImage({
+//   src: "@images/Me3.jpg",
+//   width: 1600,
+//   height: 1600,
+//   aspectRatio: 16 / 9,
+//   format: "png",
+//
+// });
+
+// const widths = [];
+// const heights = [];
+---
+
+<Image
+  class="absolute right-[-70px] sm:right-0 top-28 hero z-[10] animate-fadeInRight h-max"
+  src={heroImg}
+  alt="hero image"
+  position="right top"
+  aspectRatio="1"
+  data-observexx
+/>
+
+<!-- <script>
+  const options = {
+    root: document,
+    rootMargin: "70% 0px",
+    threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+    // threshold: [0.6, 0.7, 0.8, 0.9, 1],
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, self) => {
+      console.log(entry.intersectionRatio);
+      if (entry.isIntersecting) {
+        const opacity = entry.intersectionRatio.toFixed(2);
+        entry.target.style.opacity = opacity;
+        entry.target.style.transform = "translateX(200px)";
+
+        console.log("observing");
+      } else {
+        // self.unobserve(entry.target);
+        console.log("not observing");
+      }
+      // self.unobserve(entry.target);
+    });
+  }, options);
+
+  document.querySelectorAll("[data-observe]").forEach((element) => {
+    console.log(element);
+    observer.observe(element);
+  });
+</script> -->
+<!-- <Picture
+  class="absolute right-0 top-0 hero z-[0] opacity-60 md:opacity-100 max-w-md"
+  src={heroImg}
+  alt="hero image"
+  position="right top"
+  widths={[560, 883, 1300]}
+  aspectRatio="2:3"
+  sizes=" (max-width: 767px) 560px, 883px"
+/> -->
+
+<!-- <style>
+  .hero {
+    width: clamp(400px, 60vmax, 800px);
+    height: clamp(400px, 100vmax, 1300px);
+  }
+</style> -->

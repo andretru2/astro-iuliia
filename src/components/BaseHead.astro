@@ -1,0 +1,64 @@
+---
+import { getImage } from "@astrojs/image";
+import SEO from "simple-astro-seo";
+import site from "@src/data/site.js";
+import "@fontsource/Poppins/800.css";
+import "@fontsource/Poppins/900.css";
+import "@fontsource/Poppins/400.css";
+import "@fontsource/Poppins/500.css";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string | ImageMetadata;
+  canonicalURL?: URL;
+  pageType?: "website" | "article";
+}
+
+const {
+  description = site.description,
+  image = site.image,
+  canonicalURL = new URL(Astro.request.url, Astro.site),
+  pageType = "website",
+} = Astro.props as Props;
+
+const ensureTrailingSlash = (url: string) => url.replace(/\/$/, "") + "/";
+const resolvedImage = await getImage({
+  src: image,
+  width: 1200,
+  aspectRatio: 2,
+  format: "jpeg",
+});
+const resolvedImageWithDomain = new URL(
+  resolvedImage.src,
+  Astro.url
+).toString();
+const title = site.title ? site.title : "Iuliia | Creative UI UX Designer";
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="generator" content={Astro.generator} />
+<meta name="viewport" content="width=device-width" />
+<meta name="theme-color" content="#8D46E7" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="mask-icon" href="/favicon.svg" color="#8D46E7" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS" />
+
+<title set:html={(title, 1)} />
+
+<SEO
+  siteName={site.title}
+  {description}
+  image={resolvedImageWithDomain}
+  pageType={pageType}
+  url={ensureTrailingSlash(canonicalURL.toString())}
+/>
+
+<!-- Fathom - beautiful, simple website analytics -->
+<script
+  src="https://certain-quality.astro.build/script.js"
+  data-site="EZBHTSIG"
+  defer
+></script>

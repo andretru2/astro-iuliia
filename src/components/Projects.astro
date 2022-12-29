@@ -1,0 +1,89 @@
+---
+import type { Project } from "@src/types.js";
+import { reverse } from "@src/utils.js";
+import ProjectCard from "@components/ProjectCard.astro";
+import SectionTitle from "@components/SectionTitle.astro";
+
+// import { getProjects } from "@data/projects/index.js";
+
+// import projects from "@data/projects.json";
+
+const PROJECTS: Project[] = [
+  {
+    title: "Unicycle",
+    tags: ["Mobile", "Figma", "Miro", "Illustrator"],
+    description:
+      "Here’s how we helped users of micro-mobility services more easily see available vehicles in their area and feel more comfortable on the roads.",
+    image: {
+      src: "images/unicycle-showcase.mp4",
+      alt: "unicycle",
+    },
+    url: {
+      href: "/unicycle",
+      text: "Learn more about micro-mobility services",
+    },
+    dateCreated: "10/1/2022",
+    background: {
+      src: "images/bg-mesh-grad-1.png",
+      alt: "bg-mesh-1",
+    },
+  },
+  {
+    title: "NYC Community Fridges",
+    tags: ["Mobile", "Desktop", "Figma", "Miro", "FigJam"],
+    description:
+      "What’s in your fridge? We increased NYC community engagement by making food donations easy and convenient.",
+    image: {
+      src: "images/fridges-showcase.mp4",
+      alt: "fridges",
+    },
+    url: {
+      href: "/fridges",
+      text: "Learn more about micro-mobility services",
+    },
+    dateCreated: "10/1/2022",
+    background: {
+      src: "images/bg-mesh-grad-2.png",
+      alt: "bg-mesh-2",
+    },
+  },
+  {
+    title: "Jupo",
+    tags: ["Mobile", "Figma", "Miro", "FigJam"],
+    description:
+      "Want to travel to space? We created a futuristic app for travelers to buy tickets and become informed about the preparation process, safety measures, and risks all in one place.",
+    image: {
+      src: "images/jupo-showcase.mp4",
+      alt: "jupo",
+    },
+    url: {
+      href: "/jupo",
+      text: "Learn more about micro-mobility services",
+    },
+    dateCreated: "10/1/2022",
+    background: {
+      src: "images/bg-mesh-grad-3.png",
+      alt: "bg-mesh-3",
+    },
+  },
+];
+
+//const projects = await getProjects();
+---
+
+<section class="bg-white relative">
+  <SectionTitle title="WORK" class="pt-[40rem]" />
+  <div class="flex flex-col gap-72 pt-[15rem]">
+    {
+      PROJECTS.map((project, i) => (
+        <div>
+          <ProjectCard key={i} project={project} reverse={i % 2 === 0} />
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style></style>
+
+<!-- bg-[#edeff7]  -->

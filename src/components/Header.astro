@@ -1,0 +1,122 @@
+---
+import { Icon } from "astro-icon";
+import type { Link } from "@src/types.js";
+import site from "@data/site";
+import logo from "@assets/Logo_iuliia.svg";
+import logolight from "@assets/Logo_iuliia_light.svg";
+import hamburguer from "@assets/IconHamburguer.svg";
+import iconClose from "@assets/IconClose.svg";
+// import { SkipToContent } from "@components/SkipToContent.astro";
+
+export interface Props {
+  hero?: boolean;
+}
+
+const { hero = false } = Astro.props as Props;
+
+const links: Link[] = [
+  {
+    href: "#work",
+    text: "Work",
+  },
+  {
+    href: "#about",
+    text: "About",
+  },
+];
+---
+
+<header
+  id="navheader"
+  class:list={[
+    "absolute top-0 left-0 right-0 z-20 ",
+    !hero ? "bg-[#f6eff3]  text-slate-600 " : "text-slate-300",
+  ]}
+>
+  <!-- <SkipToContent /> -->
+  <div class="font-light text-sm py-4">
+    <nav
+      class="relative max-w-7xl mx-auto flex items-center justify-between max-h-16"
+      aria-label="Global"
+    >
+      <div class="flex flex-col sm:flex-row items-center flex-1 gap-y-6">
+        <div class="flex items-center justify-between w-full md:w-auto -m-2">
+          <a href="/" class="pt-6" id="navlogo">
+            <img src={!hero ? logolight : logo} alt="logo" />
+          </a>
+          <div class="flex items-center sm:hidden">
+            <button
+              type="button"
+              class="p-2 inline-flex items-center justify-center cursor-pointer"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Open main menu</span>
+              <img id="menubtn" src={hamburguer} alt="menu" />
+              <!-- <img id="menuclose" src={iconClose} alt="close" /> -->
+            </button>
+          </div>
+        </div>
+        <div
+          id="menu"
+          class="flex flex-col sm:flex-row gap-x-8 sm:gap-y-4 sm:ml-auto text-center sm:text-left"
+        >
+          {
+            links.map(({ href, text }) => (
+              <a href={href} class="p-4 text-lg hover:text-neutral-500">
+                {text}
+              </a>
+            ))
+          }
+
+          <!-- <div id="mobilesocial" class="flex flex-row">
+            {
+              site.socialLinks.map(({ href, text, pack, name }) => (
+                <a href={href} class="p-4" title={text}>
+                  <Icon
+                    pack={pack}
+                    name={name}
+                    size={22}
+                    class="hover:text-neutral-500 "
+                    aria-hidden="true"
+                  />
+                </a>
+              ))
+            } -->
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  const header = document.getElementById("navheader");
+  const menuBtn = document.getElementById("menubtn");
+  // const menuClose = document.getElementById("menuclose");
+  // const logox = document.getElementById("navlogo");
+
+  menuBtn.onclick = () => {
+    header.classList.toggle("open");
+    // menuBtn.src = {iconClose };
+    // menuClose.style.display = "none";
+    // menuBtn.classList.toggle("invisible");
+    // menuClose.classList.toggle("visible");
+  };
+</script>
+
+<style>
+  @media (max-width: 768px) {
+    header:not(.open) :is(#menu, #mobilesocial) {
+      @apply hidden;
+    }
+
+    header.open {
+      @apply min-h-screen;
+    }
+  }
+
+  @media screen (height: 100vmax) {
+    header :is(#menu > *) {
+      @apply font-semibold text-gray-800;
+    }
+  }
+</style>

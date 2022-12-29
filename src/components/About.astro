@@ -1,0 +1,129 @@
+---
+import SectionTitle from "@components/SectionTitle.astro";
+import { Image } from "@astrojs/image/components";
+import Skills from "@components/Skills.astro";
+---
+
+<section class="pt-[26rem] bg-white">
+  <SectionTitle title="ABOUT" />
+  <Image
+    class:list={[
+      " bg-local  bg-cover min-w-full min-h-full m-auto pt-[20rem] ",
+    ]}
+    loading="lazy"
+    src={import("../images/about-skills.png")}
+    aspectRatio="16:9"
+    alt="Skills"
+  />
+
+  <div class="relative w-full min-h-[50rem] pt-20">
+    <h1
+      class="absolute font-nunito text-[342px] text-[#4A4A4A] opacity-10 font-extrabold text-center inset-x-0 bottom-0"
+    >
+      Привет
+    </h1>
+    <h2
+      class="absolute text-[132px] text-[#1C1B1B] font-extrabold transition-transform inset-x-0 bottom-0 left-48 -translate-y-30"
+    >
+      Hello
+    </h2>
+    <h3
+      class="absolute font-nunito top-[40%] left-[80%] text-8xl text-[#9A9A9A] font-light"
+    >
+      Hola
+    </h3>
+  </div>
+  <article class="prose-xl prose-neutral max-w-4xl mx-auto pt-20">
+    <p>
+      I am Iuliia (i u l i i a), a New York-based UX UI designer from Ukraine
+      🇺🇦.
+    </p>
+    <p>
+      My UX UI journey began when I put my life in one suitcase and moved by
+      myself to the United States when I was 20.
+      <p>
+        I had to design my new life from scratch and I was thrilled. This
+        life-changing decision expanded my boundaries and exercised my grit and
+        perseverance.
+      </p>
+      <p>
+        I am constantly finding ways to express my creative genius, whether
+        learning and practicing new design trends, painting with watercolors or
+        beating my husband in tennis and then losing to him in chess :)
+      </p>
+      <p>If you have a project in mind, I am what you are looking for!</p>
+    </p>
+
+    <Skills />
+  </article>
+
+  <div class="pt-[500px] relative flex items-center justify-center">
+    <Image
+      class:list={[" absolute bg-local bg-cover z-10 mx-auto top-   "]}
+      loading="lazy"
+      src={import("../images/photo-fyea.png")}
+      aspectRatio="1"
+      alt="Skills"
+    />
+  </div>
+
+  <div
+    class="pt-96 pb-20 flex flex-col items-center justify-center bg-[linear-gradient(176.31deg,_#351E06_3.03%,_#050300_48.69%)] opacity-80"
+  >
+    <h1
+      data-observe
+      class="pt-40 text-center leading-loose p-4 text-3xl text-white font-bold"
+    >
+      DRIVEN BY
+      <p
+        data-observe
+        class="py-2 font-black text-8xl text-transparent text-[#FFCB00]"
+      >
+        F*CK YEAH!
+      </p>
+      <p class="">DESIGNS</p>
+    </h1>
+    <blockquote
+      data-observe
+      class="py-12 text-2xl font-light text-center text-gray-300"
+    >
+      <svg
+        aria-hidden="true"
+        class="w-12 h-12 text-gray-300"
+        viewBox="0 0 24 27"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        ><path
+          d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z"
+          fill="currentColor"></path>
+      </svg>
+
+      I will not stop improving until it's a f*ck yeah design!
+    </blockquote>
+  </div>
+</section>
+
+<script>
+  const options = {
+    root: document,
+    rootMargin: "0px",
+    threshold: 1,
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, self) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate-fadeInUp");
+        // entry.target.style.opacity = entry.intersectionRatio.toFixed(2);
+      } else {
+        // self.unobserve(entry.target);
+        console.log("not observing");
+      }
+      observer.unobserve(entry.target);
+    });
+  }, options);
+
+  document.querySelectorAll("[data-observe]").forEach((element) => {
+    observer.observe(element);
+  });
+</script>

@@ -1,0 +1,27 @@
+---
+interface Props {
+  skill: string;
+  class?: string;
+}
+
+const { skill, class: className } = Astro.props as Props;
+---
+
+<div
+  class:list={[
+    // "flex bg-primary/40  grow ring-2 ring-primary rounded-lg text-white gap-x-0 gap-y-2 mr-4 justify-center items-center ",
+    "flex  ring-2 ring-gray-300  border-double rounded-md gap-y-0  gap-x-0.5 mr-4 text-secondary items-center  px-6 py-2",
+    className,
+  ]}
+>
+  <span class="text-primary text-md">#</span>
+  {skill}
+</div>
+
+<style>
+  .skill {
+    box-shadow: 0 0.1rem 0.2rem hsla(0, 100%, 99%, 0.933),
+      0 0.1rem 0.5rem hsla(0, 100%, 99%, 0.3),
+      0 0.2rem 1.5rem hsla(0, 0%, 73%, 0.4);
+  }
+</style>

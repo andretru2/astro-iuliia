@@ -1,0 +1,88 @@
+---
+import SectionTitle from "@components/SectionTitle.astro";
+import SkillItem from "@components/SkillItem.astro";
+import InfiniteLoopSlider from "@components/InfiniteLoopSlider.astro";
+import { shuffle, random } from "@src/utils.js";
+
+import site from "@data/site";
+
+// const SKILLS = pluck(site.skills, "name");
+
+const SKILLS: string[] = [
+  "Wireframing",
+  "UserTesting",
+  "Ideation",
+  "UserFlow",
+  // "Micro-Interactions",
+  "Prototyping",
+  "CSS&HTML",
+  "Animation",
+  "TailwindCSS",
+  "Storybook",
+  "DesignSystems",
+  // "User-CentricDesign",
+  "Research",
+  "InformationalArchitecture",
+  "Strategy&Design",
+  "Mobile&WebDesign",
+  "Accessibility",
+  "UsabilityStudies",
+  "UI/UX",
+];
+
+const ROWS: number = 3;
+const SKILLS_PER_ROW: number = 7;
+---
+
+<section class="pt-12">
+  <!-- <SectionTitle title="SKILLS" /> -->
+  <!-- <h1 class="text-neutral-900 font-bold text-2xl max-w-7xl mx-auto">Skills</h1> -->
+  <div
+    class="p-32 shrink-0 relative flex flex-col items-center justify-center gap-y-2 gap-x-0 overflow-hidden max-w-7xl mx-auto w-[60rem]"
+  >
+    {
+      [...new Array(ROWS)].map((row, i) => {
+        return (
+          <InfiniteLoopSlider
+            duration={random(43000, 45000)}
+            reverse={i % 2 == 0}
+          >
+            {shuffle(SKILLS)
+              .slice(0, SKILLS_PER_ROW)
+              .map((skill) => (
+                <SkillItem skill={skill as string} />
+              ))}
+          </InfiniteLoopSlider>
+        );
+      })
+    }
+
+    <div class="fade"></div>
+  </div>
+</section>
+
+<style>
+  .fade {
+    pointer-events: none;
+    background: linear-gradient(
+      90deg,
+      white,
+      transparent 10%,
+      transparent 90%,
+      white
+    );
+    position: absolute;
+    inset: 0;
+  }
+</style>
+
+<!-- {
+      [...new Array(ROWS)].map((i) => {
+        return shuffle(SKILLS)
+          .slice(0, SKILLS_PER_ROW)
+          .map((skill) => (
+            <div class="text-5xl">{skill as string}</div>
+            // <SkillItem skill={skill as string} />
+          ));
+      })
+    }) -->
