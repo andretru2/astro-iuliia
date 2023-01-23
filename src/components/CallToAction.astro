@@ -7,56 +7,39 @@ export interface Props {
   href?: string;
   copyToClipboard?: boolean;
   primary?: boolean;
+  class?: string;
 }
 
-const { href, copyToClipboard = false, primary = true } = Astro.props as Props;
+const {
+  href,
+  copyToClipboard = false,
+  primary = true,
+  class: className,
+} = Astro.props as Props;
 ---
 
 {copyToClipboard && <CopyToClipboard />}
 
-<!-- <div class="flex items-center justify-center bg-slate-50"></div>
-<div class="space-x-5">
-  <button
-    class="relative overflow-hidden rounded-sm shadow-md shadow-gray-400/50 bg-gradient-to-r from-blue-400 to-cyan-400 py-3 px-5 text-lg font-medium uppercase tracking-wider text-gray-50"
-    >button</button
-  >
-  <button
-    class="relative overflow-hidden rounded-sm shadow-md shadow-gray-400/50 bg-gradient-to-r from-indigo-400 to-cyan-400 py-3 px-5 text-lg font-medium uppercase tracking-wider text-gray-50"
-    >button</button
-  >
-</div> -->
-
-<!-- <a
-  href={href}
-  class:list={[
-    `px-12 py-4 text-white bg-[#2555FF] text-lg sm:text-xl font-regular sm:font-semibold cursor-pointer  hover:ring-offset-2 hover:ring-2 hover:ring-primary`,
-  ]}
->
-  <slot />
-</a> -->
-
 <a
   href=`mailto:${site.email}?Subject=Let%27s talk about`
   class:list={[
-    `ripple px-12 py-4 rounded-md text-white bg-[#345ae8] text-lg sm:text-xl font-regular sm:font-semibold cursor-pointer  `,
+    `ripple px-12 py-4 text-white bg-designsystem text-lg sm:text-xl font-regular sm:font-semibold cursor-pointer`,
+    className,
   ]}
   ><slot />
 </a>
 
-<!-- <button class="ripple">Button</button> -->
-
 <style>
-  /* Ripple effect */
   .ripple {
     background-position: center;
     transition: background 0.8s;
   }
   .ripple:hover {
-    background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%)
+    background: #000b95 radial-gradient(circle, transparent 1%, #000b95 1%)
       center/15000%;
   }
   .ripple:active {
-    background-color: #6eb9f7;
+    background-color: #000b95;
     background-size: 100%;
     transition: background 0s;
   }
