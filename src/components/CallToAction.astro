@@ -1,6 +1,7 @@
 ---
 import CopyToClipboard from "@components/CopyToClipboard.astro";
 import { Icon } from "astro-icon";
+import site from "@data/site";
 
 export interface Props {
   href?: string;
@@ -35,7 +36,7 @@ const { href, copyToClipboard = false, primary = true } = Astro.props as Props;
 </a> -->
 
 <a
-  href={href}
+  href=`mailto:${site.email}?Subject=Let%27s talk about`
   class:list={[
     `ripple px-12 py-4 rounded-md text-white bg-[#345ae8] text-lg sm:text-xl font-regular sm:font-semibold cursor-pointer  `,
   ]}

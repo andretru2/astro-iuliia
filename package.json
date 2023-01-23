@@ -28,6 +28,7 @@
     "@fontsource/nunito": "^4.5.11",
     "@fontsource/poppins": "^4.5.10",
     "@fontsource/roboto": "^4.5.8",
+    "@fontsource/syne": "^4.5.13",
     "@tailwindcss/line-clamp": "^0.4.2",
     "astro-icon": "^0.8.0",
     "gsap": "^3.11.3",
