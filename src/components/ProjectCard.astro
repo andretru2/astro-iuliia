@@ -11,29 +11,29 @@ export interface Props {
 
 const { key, project, reverse = true } = Astro.props as Props;
 // const margin = alternate ? "ml-auto" : "mr-auto";
-const margin = "m-auto";
-const maxHeight = "max-h-[41rem]";
+// const margin = "m-auto";
+// const maxHeight = "max-h-[41rem]";
 // const maxHeight = "min-h-screen";
-const bg = project.background.src;
+// const bg = project.background.src;
 // const bg = "#aaa";
 ---
 
-<article id={key} class:list={[" relative isolate max-w-5xl rounded ", margin]}>
+<article id={key} class:list={[" relative isolate max-w-5xl rounded "]}>
   <a class="absolute inset-0 z-10" href={project.url?.href} target="_blank">
     <span class="sr-only">Learn more about {project.title}</span>
   </a>
 
   <div
     class:list={[
-      " card tilt preserve3d grid grid-cols-12  place-items-center ring-secondary/70  ",
-      maxHeight,
+      " card tilt preserve3d grid grid-cols-12 place-items-center ring-secondary/70  ",
+      ,
     ]}
   >
     <video
       class:list={[
         "video preserve3d col-span-6 shadow-xl border-2 border-zinc-100   ",
-        reverse ? "order-first mr-24" : "order-last  ",
-        maxHeight,
+        reverse ? "order-first mr-20 " : "order-last  ",
+        ,
       ]}
       autoplay
       loop
@@ -68,8 +68,8 @@ const bg = project.background.src;
       </p>
 
       <button
-        class="mt-6 grow-0 text-xl w-max px-7 py-2 text-white bg-designsystem-500 hover:bg-slate-200"
-        >Case Study</button
+        class="mt-6 grow-0 text-lg w-max px-7 py-2 text-white bg-designsystem-500 hover:bg-slate-200"
+        >View Case</button
       >
     </div>
   </div>

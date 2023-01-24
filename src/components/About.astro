@@ -2,21 +2,19 @@
 import SectionTitle from "@components/SectionTitle.astro";
 import { Image } from "@astrojs/image/components";
 import Skills from "@components/Skills.astro";
+import { getImage } from "@astrojs/image";
+
+const profile = await getImage({
+  src: "../../public/images/about-profile.png",
+  width: 800,
+  height: 800,
+  aspectRatio: 1,
+  format: "jpeg",
+});
 ---
 
-<section id="about" class="pt-[26rem] bg-white">
-  <SectionTitle title="ABOUT" />
-  <Image
-    class:list={[
-      " bg-local  bg-cover min-w-full min-h-full m-auto pt-[20rem] ",
-    ]}
-    loading="lazy"
-    src={import("../images/about-skills.png")}
-    aspectRatio="16:9"
-    alt="Skills"
-  />
-
-  <div class="relative w-full min-h-[50rem] pt-20">
+<section id="about" class="mt-36">
+  <div class="relative w-full pt-20">
     <h1
       class="absolute font-nunito text-[342px] text-[#4A4A4A] opacity-10 font-extrabold text-center inset-x-0 bottom-0"
     >
