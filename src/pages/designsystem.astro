@@ -9297,7 +9297,18 @@ const final = await getImage({
     <h1 class="font-syne font-bold text-4xl">
       Final <span class="text-designsystem-500">Designs</span>
     </h1>
-    <Image src={final} alt="final" class="mt-24" />
+    <!-- <Image src={final} alt="final" class="mt-24" /> -->
+    <video
+      class:list={[
+        "video preserve3d col-span-6 shadow-xl border-2 border-zinc-100   ",
+
+        ,
+      ]}
+      autoplay
+      loop
+    >
+      <source src={"/images/design-system-showcase.mp4"} type="video/mp4" />
+    </video>
   </section>
   <section class="relative flex flex-col justify-center items-center py-36">
     <h1 class="font-syne font-bold text-4xl">Testimonials</h1>
