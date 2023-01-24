@@ -10,6 +10,25 @@ import SectionTitle from "@components/SectionTitle.astro";
 
 const PROJECTS: Project[] = [
   {
+    title: "Design System",
+    tags: ["Web", "Mobile", "Figma", "TailwindCSS"],
+    description:
+      "Constructed a robust library of polished, production-ready reusable UI components with specifications and documentation as part of a scalable Design System.",
+    image: {
+      src: "images/design-system-showcase.mp4",
+      alt: "designsystem",
+    },
+    url: {
+      href: "/designsystem",
+      text: "Learn more about the design system",
+    },
+    dateCreated: "1/23/2022",
+    background: {
+      src: "images/bg-mesh-grad-1.png",
+      alt: "bg-mesh-1",
+    },
+  },
+  {
     title: "Unicycle",
     tags: ["Mobile", "Figma", "Miro", "Illustrator"],
     description:
@@ -67,13 +86,10 @@ const PROJECTS: Project[] = [
     },
   },
 ];
-
-//const projects = await getProjects();
 ---
 
 <section class="bg-white relative">
-  <SectionTitle title="WORK" class="pt-[40rem]" />
-  <div class="flex flex-col gap-72 pt-[15rem]">
+  <div id="work" class="flex flex-col gap-64 mt-28">
     {
       PROJECTS.map((project, i) => (
         <div>
@@ -83,7 +99,3 @@ const PROJECTS: Project[] = [
     }
   </div>
 </section>
-
-<style></style>
-
-<!-- bg-[#edeff7]  -->

@@ -11,46 +11,29 @@ export interface Props {
 
 const { key, project, reverse = true } = Astro.props as Props;
 // const margin = alternate ? "ml-auto" : "mr-auto";
-const margin = "m-auto";
-const maxHeight = "max-h-[41rem]";
+// const margin = "m-auto";
+// const maxHeight = "max-h-[41rem]";
 // const maxHeight = "min-h-screen";
-const bg = project.background.src;
+// const bg = project.background.src;
 // const bg = "#aaa";
 ---
 
-<article id={key} class:list={[" relative isolate max-w-5xl rounded ", margin]}>
+<article id={key} class:list={[" relative isolate max-w-5xl rounded "]}>
   <a class="absolute inset-0 z-10" href={project.url?.href} target="_blank">
     <span class="sr-only">Learn more about {project.title}</span>
   </a>
-  <!-- <div
-    class:list={[
-      "card tilt preserve3d grid grid-cols-12  place-items-center bg-local bg-no-repeat bg-transparent  rounded-lg shadow ring-secondary/70  ",
-      maxHeight,
-    ]}
-    style={`--bg: url(${bg});`}
-  > -->
+
   <div
     class:list={[
-      " card tilt preserve3d grid grid-cols-12  place-items-center ring-secondary/70  ",
-      maxHeight,
+      " card tilt preserve3d grid grid-cols-12 place-items-center ring-secondary/70  ",
+      ,
     ]}
   >
-    <!-- rounded-lg shadow-lg bg-[linear-gradient(76.97deg,_#F7F9FC_-22.55%,_#F2F2F2_100%)] -->
-    <!-- <Image
-      class:list={[
-        " preserve3d col-span-6 scale-110  h-[calc(100%-2em)]",
-        reverse ? "order-first" : "order-last",
-      ]}
-      loading="lazy"
-      src={import(project.image.src)}
-      aspectRatio="1:1"
-      alt={project.image.alt}
-    /> -->
     <video
       class:list={[
-        "video preserve3d col-span-6  shadow-xl border-2 border-zinc-100 rounded-3xl  ",
-        reverse ? "order-first " : "order-last ",
-        maxHeight,
+        "video preserve3d col-span-6 shadow-xl border-2 border-zinc-100   ",
+        reverse ? "order-first mr-20 " : "order-last  ",
+        ,
       ]}
       autoplay
       loop
@@ -60,16 +43,16 @@ const bg = project.background.src;
 
     <div
       class:list={[
-        "col-span-6  flex flex-col ",
+        "col-span-6 flex flex-col ",
         reverse ? "order-last " : "order-first ml-20",
       ]}
     >
       <h1
-        class="title preserve3d text-6xl text-slate-800 font-display font-semibold line-clamp-3 max-w-sm h-fit pb-4"
+        class="title preserve3d font-syne text-4xl text-gray-900 font-bold line-clamp-3 max-w-sm h-fit pb-4"
       >
         {project.title}
       </h1>
-      <ol class="flex flex-row gap-2 tag preserve3d pt-8">
+      <ol class="flex flex-row gap-2 tag preserve3d pt-1">
         {
           project.tags.map((tag) => {
             return (
@@ -80,15 +63,13 @@ const bg = project.background.src;
           })
         }
       </ol>
-      <p
-        class="pt-8 flex-1 description preserve3d text-lg font-display line-clamp-4 max-w-md leading-8 text-slate-800"
-      >
+      <p class="pt-6 description preserve3d prose prose-md">
         {project.description}
       </p>
 
       <button
-        class="mt-16 grow-0 w-max px-8 py-3 font-medium rounded-md text-white bg-[#345ae8] hover:bg-slate-200"
-        >Case Study</button
+        class="mt-6 grow-0 text-lg w-max px-7 py-2 text-white bg-designsystem-500 hover:bg-slate-200"
+        >View Case</button
       >
     </div>
   </div>

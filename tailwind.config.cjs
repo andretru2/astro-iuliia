@@ -11,6 +11,7 @@ module.exports = {
       poppins: ["Poppins", "sans-serif"],
       nunito: ["Nunito", "sans-serif"],
       sanchez: ["sanchez", "sans-serif"],
+      syne: ["Syne", "mono"],
     },
     extend: {
       colors: {
@@ -20,6 +21,11 @@ module.exports = {
         blue: "#3D4D8B",
         unicyclePrimary: "#2FD6CC",
         unicycleSecondary: "#4D47C6",
+        designsystem: {
+          DEFAULT: "#3368FF",
+          500: "#4F75FF",
+          800: "#000B95",
+        },
       },
       animation: {
         // fadeInUp: " 0.75s ease-in-out 1 normal both running fadeInUp",
