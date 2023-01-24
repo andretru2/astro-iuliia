@@ -2,6 +2,7 @@
 import type { Project } from "@src/types.js";
 import { Image } from "@astrojs/image/components";
 import Chip from "@components/Chip.astro";
+import { Sprite } from "astro-icon";
 
 export interface Props {
   key: string;
@@ -69,8 +70,9 @@ const { key, project, reverse = true } = Astro.props as Props;
 
       <button
         class="mt-6 grow-0 text-lg w-max px-7 py-2 text-white bg-designsystem-500 hover:bg-slate-200"
-        >View Case</button
-      >
+        >View Case
+        <Sprite class="inline" pack="ic" name="round-arrow-forward" size={24} />
+      </button>
     </div>
   </div>
 </article>

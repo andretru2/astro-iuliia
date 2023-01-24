@@ -10,17 +10,9 @@ import About from "@components/About.astro";
 import Skills from "@components/Skills.astro";
 
 const profile = await getImage({
-  src: "../../public/images/about-profile-original_cropped.png",
+  src: "/images/about-profile-original_cropped.png",
   width: 700,
   height: 700,
-  aspectRatio: 1,
-  format: "jpeg",
-});
-
-const sayAboutMe = await getImage({
-  src: "../../public/images/about-what-people-say-about-me.png",
-  width: 3000,
-  height: 2000,
   aspectRatio: 1,
   format: "jpeg",
 });
@@ -95,20 +87,34 @@ const sayAboutMe = await getImage({
         class="[&>p]:prose [&>p]:prose-xl max-w-3xl mx-auto flex flex-col mt-14 gap-4"
       >
         <p class="">
-          I am Iuliia (i u l i i a), a New York-based UI/UX designer from
-          Ukraine 🇺🇦.
+          I am Iuliia <b class="font-bold">(i u l i i a)</b>, a New York-based
+          UI/UX designer from Ukraine 🇺🇦.
           <p class="">
-            My UX journey began when I left my home country with just a suitcase
-            and moved to the United States alone at age 20. I had to build my
-            new life from the ground up using my skills in strategic thinking,
-            determination, and perseverance.
+            My multidisciplinary background in investment banking and high-end
+            interior design in New York dramatically benefits me as a UI/UX
+            designer. I use my financial analysis and <b class="font-bold"
+              >strategic decision-making skills</b
+            > from investment banking to <b class="font-bold"
+              >design financially viable user-centered designs.</b
+            > Furthermore, my experience in the interior design industry has given
+            me a <b class="font-bold"
+              >strong understanding of design principles</b
+            >, allowing me to create
+            <b class="font-bold"
+              >visually appealing and easy-to-use interfaces</b
+            > that meet customers' needs. Finally, my background in business strategy
+            allows me to think about user experience design in the context of a larger
+            company vision and goals, resulting in <b class="font-bold"
+              >designs that align with the organization's overall strategy and
+              drive revenue growth.</b
+            >
           </p>
           <p>
-            Through my broad work experiences in finance, business management
-            and operations, I have gained a broad understanding of the needs of
-            different customers. My ability to connect with people is a unique
-            skill that sets me apart. UI/UX design is an avenue that allows me
-            to express my natural talent and advocate for the needs of users.
+            With my unique combination of skills and experience, I can bring a
+            <b class="font-bold">holistic approach</b> to the design process and
+            <b class="font-bold"
+              >help drive business success by creating user-centric designs</b
+            > that meet both customer needs and company objectives.
           </p>
         </p>
         <Skills />

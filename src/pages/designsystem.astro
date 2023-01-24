@@ -3,9 +3,12 @@ import Layout from "@layouts/Layout.astro";
 import { Image } from "@astrojs/image/components";
 import { getImage } from "@astrojs/image";
 import logo from "@assets/Logo_iuliia.svg";
+import site from "@src/data/site.js";
+
+import { Icon, Sprite } from "astro-icon";
 
 const hero = await getImage({
-  src: "../../public/images/design-system-hero.png",
+  src: "images/design-system-hero.png",
   width: 3000,
   height: 2000,
   aspectRatio: 16 / 9,
@@ -13,21 +16,21 @@ const hero = await getImage({
 });
 
 const client1 = await getImage({
-  src: "../../public/images/design-system-client1.png",
+  src: "images/design-system-client1.png",
   width: 400,
   height: 400,
   aspectRatio: 16 / 9,
   format: "jpeg",
 });
 const client2 = await getImage({
-  src: "../../public/images/design-system-client2.png",
+  src: "images/design-system-client2.png",
   width: 400,
   height: 400,
   aspectRatio: 16 / 9,
   format: "jpeg",
 });
 const client3 = await getImage({
-  src: "../../public/images/design-system-client3.png",
+  src: "images/design-system-client3.png",
   width: 400,
   height: 400,
   aspectRatio: 16 / 9,
@@ -35,7 +38,7 @@ const client3 = await getImage({
 });
 
 const audit = await getImage({
-  src: "../../public/images/design-system-audit.png",
+  src: "images/design-system-audit.png",
   width: 3000,
   height: 2000,
   aspectRatio: 16 / 9,
@@ -43,7 +46,7 @@ const audit = await getImage({
 });
 
 const exampleHome = await getImage({
-  src: "../../public/images/design-system-example-home.png",
+  src: "images/design-system-example-home.png",
   width: 1440,
   height: 900,
   aspectRatio: 1,
@@ -51,7 +54,7 @@ const exampleHome = await getImage({
 });
 
 const typography = await getImage({
-  src: "../../public/images/design-system-typography.png",
+  src: "images/design-system-typography.png",
   width: 1350,
   height: 750,
   aspectRatio: 1,
@@ -59,7 +62,7 @@ const typography = await getImage({
 });
 
 const colorPalette = await getImage({
-  src: "../../public/images/design-system-colors.svg",
+  src: "images/design-system-colors.svg",
   width: 1800,
   height: 1000,
   aspectRatio: 1,
@@ -67,14 +70,14 @@ const colorPalette = await getImage({
 });
 
 const collaboration = await getImage({
-  src: "../../public/images/design-system-collaboration1.png",
+  src: "images/design-system-collaboration1.png",
   width: 800,
   height: 600,
   aspectRatio: 1,
   format: "jpeg",
 });
 const collaboration2 = await getImage({
-  src: "../../public/images/design-system-collaboration2.png",
+  src: "images/design-system-collaboration2.png",
   width: 800,
   height: 600,
   aspectRatio: 1,
@@ -82,7 +85,7 @@ const collaboration2 = await getImage({
 });
 
 const final = await getImage({
-  src: "../../public/images/design-system-final.png",
+  src: "images/design-system-final.png",
   width: 3440,
   height: 2200,
   aspectRatio: 1,
@@ -9337,5 +9340,47 @@ const final = await getImage({
       </svg>
     </div>
   </section>
-  <!-- <p class="prose prose-xl mt-4 max-w-3xl font-bold">Atomic Design</p> -->
+
+  <section class="my-72 flex flex-col items-center justify-center">
+    <h1 class="font-syne font-bold text-4xl">
+      Have a <span class="text-designsystem">Project&nbsp;</span><span class=""
+        >in mind?</span
+      >
+    </h1>
+    <div class="flex flex-col items-center align-center">
+      <a
+        href=`mailto:${site.email}?Subject=Let%27s talk about`
+        class="mt-24 w-64 h-64 rounded-full flex flex-col items-center align-center justify-center text-white font-bold bg-gradient-to-tr from-designsystem-500 to-designsystem-800/70 hover:bg-slate-200 text-2xl"
+        >Let's talk about it!</a
+      >
+    </div>
+  </section>
+
+  <footer
+    class="bg-designsystem-800 mt-28 p-28 relative overflow-hidden shadow-md"
+  >
+    <div class="max-w-7xl mx-auto flex flex-col gap-4">
+      <h1 class="text-3xl font-semibold text-white">{site.name}</h1>
+      <a
+        href=`mailto:${site.email}?Subject=Let%27s talk about`
+        class="text-lg text-white">{site.email}</a
+      >
+
+      <div class="flex justify-start gap-4 pt-2">
+        {
+          site.socialLinks.map(({ href, text, pack, name }) => (
+            <a
+              href={href}
+              title={text}
+              class="text-neutral-300 hover:text-neutral-100 "
+            >
+              <span class="sr-only">{text}</span>
+              <Sprite pack={pack} name={name} size={24} aria-hidden="true" />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+    <!-- <p class="prose prose-xl mt-4 max-w-3xl font-bold">Atomic Design</p> -->
+  </footer>
 </Layout>
