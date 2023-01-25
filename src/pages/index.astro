@@ -21,10 +21,10 @@ const profile = await getImage({
 <Layout class="text-gray-900 text-xl font-poppins relative">
   <main class="relative flex flex-col h-screen items-center justify-center">
     <div class="flex flex-col items-center gap-3">
-      <h1 class="font-syne font-extrabold text-6xl text-center">
-        CREATIVE UI/UX <p class="text-designsystem">DESIGNER</p>
+      <h1 class="pt-8 font-syne font-extrabold text-6xl text-center">
+        CREATIVE UI/UX <p class="text-designsystem pt-4">DESIGNER</p>
       </h1>
-      <p class="prose prose-xl mt-4">
+      <p class="prose prose-xl mt-4 text-center">
         With a unique blend of business acumen and strong visual design skills,
         driving revenue growth through user-centered designs.
       </p>
@@ -52,12 +52,15 @@ const profile = await getImage({
     </svg>
   </main>
   <section class="relative flex flex-col justify-center items-center">
-    <h1 class="font-syne font-bold text-4xl mt-28">
+    <h1 class="font-syne font-bold text-4xl mt-20">
       Selected <span class="text-designsystem">Projects</span>
     </h1>
     <Projects />
   </section>
-  <section class="relative flex flex-col justify-center items-center mt-36">
+  <section
+    id="about"
+    class="relative flex flex-col justify-center items-center mt-36"
+  >
     <h1 class="font-syne font-bold text-4xl mt-28">
       About <span class="text-designsystem">Me</span>
     </h1>
