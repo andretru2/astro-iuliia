@@ -20,14 +20,18 @@ const { key, project, reverse = true } = Astro.props as Props;
 ---
 
 <article id={key} class:list={[" relative isolate max-w-5xl rounded "]}>
-  <a class="absolute inset-0 z-10" href={project.url?.href} target="_blank">
+  <a
+    hidden={project.disabled}
+    class="absolute inset-0 z-10"
+    href={project.url?.href}
+    target="_blank"
+  >
     <span class="sr-only">Learn more about {project.title}</span>
   </a>
 
   <div
     class:list={[
       " card tilt preserve3d grid grid-cols-12 place-items-center ring-secondary/70  ",
-      ,
     ]}
   >
     <video
@@ -69,7 +73,11 @@ const { key, project, reverse = true } = Astro.props as Props;
       </p>
 
       <button
-        class="mt-6 grow-0 text-lg w-max px-7 py-2 text-white bg-designsystem-500 hover:bg-slate-200"
+        disabled={project.disabled}
+        class:list={[
+          "rounded-sm mt-6 grow-0 text-lg w-max px-7 py-2 text-white bg-designsystem-500 hover:bg-slate-200",
+          project.disabled ? "cursor-none bg-gray-200 text-gray-900" : "",
+        ]}
         >View Case
         <Sprite class="inline" pack="ic" name="round-arrow-forward" size={24} />
       </button>

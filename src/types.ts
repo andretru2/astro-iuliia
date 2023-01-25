@@ -28,6 +28,7 @@ export interface Site {
   image: ImageMetadata;
   socialLinks: IconLink[];
   skills: Skills[];
+  twitterHandle: string;
 }
 
 export interface Project {
@@ -44,4 +45,5 @@ export interface Project {
     alt: string;
   };
   dateCreated: string;
+  disabled?: boolean;
 }

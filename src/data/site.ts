@@ -2,12 +2,13 @@ import type { Site } from "@src/types.js";
 import social from "@assets/social.jpg";
 
 const site: Site = {
-  name: "iuliia Bakhtoiarova",
-  title: "iuliia Bakhtoiarova - Creative UI/UX Designer",
+  name: "Iuliia.Design",
+  title: "Iuliia Bakhtoiarova - Creative UI/UX Designer",
   description:
-    "A strategic visionary driven to create aesthetically impactful user-centered designs.",
+    "Creative UI/UX Designer with a unique blend of business acumen and strong visual design skills, driving revenue growth through user-centered designs.",
   image: social,
   email: "iuliia.bakhtoiarova@gmail.com",
+  twitterHandle: "iuliiadesign",
   socialLinks: [
     {
       href: "http://www.linkedin.com/in/iuliia-bakhtoiarova",

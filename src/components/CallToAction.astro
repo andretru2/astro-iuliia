@@ -1,6 +1,6 @@
 ---
 import CopyToClipboard from "@components/CopyToClipboard.astro";
-import { Icon } from "astro-icon";
+import { Sprite } from "astro-icon";
 import site from "@data/site";
 
 export interface Props {
@@ -23,10 +23,11 @@ const {
 <a
   href=`mailto:${site.email}?Subject=Let%27s talk about`
   class:list={[
-    `ripple px-12 py-4 text-white bg-designsystem text-lg sm:text-xl font-regular sm:font-semibold cursor-pointer`,
+    `rounded-sm  ripple px-12 py-4 text-white bg-designsystem text-lg sm:text-lg  sm:font-semibold cursor-pointer`,
     className,
   ]}
   ><slot />
+  <Sprite class="inline" pack="ic" name="round-arrow-forward" size={24} />
 </a>
 
 <style>

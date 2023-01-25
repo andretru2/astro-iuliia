@@ -1,6 +1,7 @@
 ---
 import { getImage } from "@astrojs/image";
-import SEO from "simple-astro-seo";
+// import SEO from "simple-astro-seo";
+import { SEO } from "astro-seo";
 import site from "@src/data/site.js";
 // import "@fontsource/Poppins/800.css";
 import "@fontsource/poppins/800.css";
@@ -17,8 +18,9 @@ export interface Props {
   title?: string;
   description?: string;
   image?: string | ImageMetadata;
-  canonicalURL?: URL;
+  canonicalURL?: URL | null;
   pageType?: "website" | "article";
+  twitterHandle?: string;
 }
 
 const {
@@ -26,6 +28,7 @@ const {
   image = site.image,
   canonicalURL = new URL(Astro.request.url, Astro.site),
   pageType = "website",
+  twitterHandle = site.twitterHandle,
 } = Astro.props as Props;
 
 const ensureTrailingSlash = (url: string) => url.replace(/\/$/, "") + "/";
@@ -39,7 +42,7 @@ const resolvedImageWithDomain = new URL(
   resolvedImage.src,
   Astro.url
 ).toString();
-const title = site.title ? site.title : "Iuliia | Creative UI UX Designer";
+const title = site.title ? site.title : "Iuliia | Creative UI/UX Designer";
 ---
 
 <!-- Global Metadata -->
@@ -52,14 +55,42 @@ const title = site.title ? site.title : "Iuliia | Creative UI UX Designer";
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS" />
 
-<title set:html={(title, 1)} />
+<title set:html={(title, "Iuliia.Design")} />
 
-<SEO
-  siteName={site.title}
+<!-- <SEO
+  siteName={title}
   {description}
   image={resolvedImageWithDomain}
   pageType={pageType}
   url={ensureTrailingSlash(canonicalURL.toString())}
+/> -->
+
+<SEO
+  title={title}
+  description={description}
+  openGraph={{
+    basic: {
+      title:
+        "Creative UI/UX Designer with a unique blend of business acumen and strong visual design skills, driving revenue growth through user-centered designs.",
+    },
+  }}
+  twitter={{
+    creator: "@iuliiadesign",
+  }}
+  extend={{
+    // extending the default link tags
+    link: [{ rel: "icon", href: "/favicon.ico" }],
+    // extending the default meta tags
+    meta: [
+      {
+        name: "twitter:image",
+        content:
+          "https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png",
+      },
+      { name: "twitter:title", content: "Tinker Tailor Soldier Spy" },
+      { name: "twitter:description", content: "Agent" },
+    ],
+  }}
 />
 
 <!-- Fathom - beautiful, simple website analytics -->
