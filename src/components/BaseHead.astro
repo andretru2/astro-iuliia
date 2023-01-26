@@ -3,6 +3,8 @@ import { getImage } from "@astrojs/image";
 // import SEO from "simple-astro-seo";
 import { SEO } from "astro-seo";
 import site from "@src/data/site.js";
+import { GoogleAnalytics } from 'astro-google-analytics';
+
 // import "@fontsource/Poppins/800.css";
 import "@fontsource/poppins/800.css";
 import "@fontsource/poppins/900.css";
@@ -56,6 +58,8 @@ const title = site.title ? site.title : "Iuliia | Creative UI/UX Designer";
 <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS" />
 
 <title set:html={(title, "Iuliia | Design")} />
+
+  <GoogleAnalytics id="G-Q7H5NY0Q1B" />
 
 <!-- <SEO
   siteName={title}

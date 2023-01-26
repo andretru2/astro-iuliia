@@ -7,10 +7,13 @@ import sitemap from "@astrojs/sitemap";
 import netlify from "@astrojs/netlify/functions";
 
 // https://astro.build/config
+import partytown from "@astrojs/partytown";
+
+// https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), sitemap(), image({
     serviceEntryPoint: "@astrojs/image/sharp"
-  })],
+  }), partytown()],
   vite: {
     ssr: {
       external: ["svgo"]
