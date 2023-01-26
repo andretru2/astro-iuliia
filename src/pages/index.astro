@@ -90,7 +90,7 @@ const profile = await getImage({
         class="[&>p]:prose [&>p]:prose-xl max-w-3xl mx-auto flex flex-col mt-4 gap-4"
       >
         <p class="">
-          I am Iuliia <b class="font-bold">(i u l i i a)</b>, a New York-based
+          I am Iuliia <span class="decorate">(i u l i i a)</span>, a New York-based
           UI/UX designer from Ukraine 🇺🇦.
           <p class="">
             My multidisciplinary background in investment banking and high-end
@@ -719,5 +719,24 @@ const profile = await getImage({
 <style>
   .safari-blur {
     transform: translate3d(0, 0, 0);
+  }
+
+  .decorate {
+    position: relative;
+    padding-right: 0.033px;
+    white-space: nowrap;
+
+  }
+
+  .decorate::after {
+        background-color: "#3368FF";
+    content: "";
+    position: absolute;
+    top: 0.109em;
+    left: -0.125em;
+    right: -0.125em;
+    bottom: -0.109em;
+
+    z-index: -10;
   }
 </style>
