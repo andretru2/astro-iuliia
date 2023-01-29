@@ -1,13 +1,9 @@
 ---
-import { Image } from "@astrojs/image/components";
 import type { Link } from "@src/types.js";
-import site from "@data/site";
-import logo from "@assets/Logo_iuliia.svg";
-import logolight from "@assets/Logo_iuliia_light.svg";
-import hamburguer from "@assets/IconHamburguer.svg";
-import iconClose from "@assets/IconClose.svg";
-// import Logo from "./Logo.astro";
-// import { SkipToContent } from "@components/SkipToContent.astro";
+
+import logo from "@images/Logo.svg";
+
+// import hamburguer from "@assets/IconHamburguer.svg";
 
 export interface Props {
   hero?: boolean;
@@ -46,7 +42,7 @@ const links: Link[] = [
               aria-expanded="false"
             >
               <span class="sr-only">Open main menu</span>
-              <img id="menubtn" src={hamburguer} alt="menu" />
+              <img id="menubtn" src="" alt="menu" />
               <!-- <img id="menuclose" src={iconClose} alt="close" /> -->
             </button>
           </div>
