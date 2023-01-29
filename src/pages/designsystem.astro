@@ -2,10 +2,11 @@
 import Layout from "@layouts/Layout.astro";
 import { Image } from "@astrojs/image/components";
 import { getImage } from "@astrojs/image";
-import logo from "@assets/Logo_iuliia.svg";
+// import logo from "@assets/Logo_iuliia.svg";
 import site from "@src/data/site.js";
+// import Logo from "@src/components/Logo.astro";
 
-import { Icon, Sprite } from "astro-icon";
+import { Sprite } from "astro-icon";
 
 const hero = await getImage({
   src: "images/design-system-hero.png",
@@ -13,6 +14,7 @@ const hero = await getImage({
   height: 2000,
   aspectRatio: 16 / 9,
   format: "jpeg",
+  alt: "hero",
 });
 
 const client1 = await getImage({
@@ -21,6 +23,7 @@ const client1 = await getImage({
   height: 400,
   aspectRatio: 16 / 9,
   format: "jpeg",
+  alt: "client1",
 });
 const client2 = await getImage({
   src: "images/design-system-client2.png",
@@ -28,6 +31,7 @@ const client2 = await getImage({
   height: 400,
   aspectRatio: 16 / 9,
   format: "jpeg",
+  alt: "client2",
 });
 const client3 = await getImage({
   src: "images/design-system-client3.png",
@@ -35,6 +39,7 @@ const client3 = await getImage({
   height: 400,
   aspectRatio: 16 / 9,
   format: "jpeg",
+  alt: "client3",
 });
 
 const audit = await getImage({
@@ -43,6 +48,7 @@ const audit = await getImage({
   height: 2000,
   aspectRatio: 16 / 9,
   format: "jpeg",
+  alt: "audit",
 });
 
 const exampleHome = await getImage({
@@ -51,6 +57,7 @@ const exampleHome = await getImage({
   height: 900,
   aspectRatio: 1,
   format: "jpeg",
+  alt: "designsystem",
 });
 
 const typography = await getImage({
@@ -59,6 +66,7 @@ const typography = await getImage({
   height: 750,
   aspectRatio: 1,
   format: "jpeg",
+  alt: "typography",
 });
 
 const colorPalette = await getImage({
@@ -67,6 +75,7 @@ const colorPalette = await getImage({
   height: 1000,
   aspectRatio: 1,
   format: "jpeg",
+  alt: "color",
 });
 
 const collaboration = await getImage({
@@ -75,6 +84,7 @@ const collaboration = await getImage({
   height: 600,
   aspectRatio: 1,
   format: "jpeg",
+  alt: "collaboration1",
 });
 const collaboration2 = await getImage({
   src: "images/design-system-collaboration2.png",
@@ -82,6 +92,7 @@ const collaboration2 = await getImage({
   height: 600,
   aspectRatio: 1,
   format: "jpeg",
+  alt: "collaboration2",
 });
 
 const final = await getImage({
@@ -90,18 +101,21 @@ const final = await getImage({
   height: 2200,
   aspectRatio: 1,
   format: "jpeg",
+  alt: "final",
 });
 ---
 
-<Layout class="text-gray-900 text-xl font-poppins">
-  <main class="relative flex flex-col h-screen items-center justify-center">
+<Layout hero={false} class="text-gray-900 text-xl font-poppins">
+  <main
+    class="relative flex h-screen animate-fadeInLeft flex-col items-center justify-center"
+  >
     <div class="flex flex-col items-end gap-3">
-      <h1 class="font-syne font-extrabold text-6xl">
+      <h1 class="font-syne text-6xl font-extrabold">
         DESIGN <span class="text-designsystem">SYSTEM</span>
       </h1>
       <p class="text-2xl font-medium">Britannica Home Fashions, Inc.</p>
     </div>
-    <div class="flex flex-row gap-12 absolute bottom-20">
+    <div class="absolute bottom-20 flex flex-row gap-12">
       <div class="flex items-center justify-center">
         <svg
           width="16"
@@ -112,7 +126,7 @@ const final = await getImage({
         >
           <circle cx="8" cy="8.5" r="8" fill="#FCD34D"></circle>
         </svg>
-        <h4 class="text-gray-500 ml-5">
+        <h4 class="ml-5 text-gray-500">
           Where <p class="font-semibold text-gray-800">New York, NY</p>
         </h4>
       </div>
@@ -126,7 +140,7 @@ const final = await getImage({
         >
           <circle cx="8" cy="8.5" r="8" fill="#00BF81"></circle>
         </svg>
-        <h4 class="text-gray-500 ml-5">
+        <h4 class="ml-5 text-gray-500">
           Role <p class="font-semibold text-gray-800">UI Designer</p>
         </h4>
       </div>
@@ -142,7 +156,7 @@ const final = await getImage({
           <circle cx="8" cy="8.5" r="8" fill="#C084FC"></circle>
         </svg>
 
-        <h4 class="text-gray-500 ml-5">
+        <h4 class="ml-5 text-gray-500">
           Tools <p class="font-semibold text-gray-800">Figma, Tailwind</p>
         </h4>
       </div>
@@ -157,7 +171,7 @@ const final = await getImage({
           <circle cx="8" cy="8.5" r="8" fill="#4F75FF"></circle>
         </svg>
 
-        <h4 class="text-gray-500 ml-5">
+        <h4 class="ml-5 text-gray-500">
           Timeline <p class="font-semibold text-gray-800">Oct - Dec 2022</p>
         </h4>
       </div>
@@ -198,13 +212,13 @@ const final = await getImage({
         stroke-dasharray="6 6"></path>
     </svg> -->
   </main>
-  <Image src={hero} alt="hero" class="my-48" />
-  <section class="relative flex flex-col justify-center items-center">
-    <h1 class="font-syne font-bold text-4xl mt-28">
+  <Image src={hero} alt="hero" class="my-48 rounded-sm" />
+  <section class="relative flex flex-col items-center justify-center">
+    <h1 class="mt-28 font-syne text-4xl font-bold">
       Meet the <span class="text-designsystem">Client</span>
     </h1>
     <p class="prose prose-xl mt-24 max-w-3xl">
-      <b class="font-bold decoration decoration-designsystem/40 decoration-4"
+      <b class="decoration font-bold decoration-designsystem/40 decoration-4"
         >Britannica Home Fashions, Inc.</b
       >, a leading force in the home textile industry for over 40 years, has a
       very robust internal system to manage their business worldwide (USA,
@@ -215,14 +229,14 @@ const final = await getImage({
       applications have a different look & feel. They operate differently. As a
       consequence, users create costly mistakes.
     </p>
-    <p class="prose prose-xl mt-4 font-bold max-w-3xl">
+    <p class="prose prose-xl mt-4 max-w-3xl font-bold">
       Developing a design system was essential for the company to have
       consistency across their systems and be able to scale further and grow.
     </p>
-    <div class="grid grid-flow-col mt-48 gap-12">
-      <Image src={client1} alt="client1" class="" />
-      <Image src={client2} alt="client2" class="" />
-      <Image src={client3} alt="client3" class="" />
+    <div class="mt-48 grid grid-flow-col gap-12">
+      <Image src={client1} alt="client1" class="rounded-sm" />
+      <Image src={client2} alt="client2" class="rounded-sm" />
+      <Image src={client3} alt="client3" class="rounded-sm" />
     </div>
     <svg
       class="absolute left-52 top-12 -z-10"
@@ -255,13 +269,13 @@ const final = await getImage({
         stroke-dasharray="6 6"></path>
     </svg>
   </section>
-  <section class="relative flex flex-col justify-center items-center my-48">
-    <h1 class="font-syne font-bold text-4xl mt-28">
+  <section class="relative my-48 flex flex-col items-center justify-center">
+    <h1 class="mt-28 font-syne text-4xl font-bold">
       Product <span class="text-designsystem">Audit</span>
     </h1>
-    <Image src={audit} alt="hero" class="my-24 p-8" />
+    <Image src={audit} alt="hero" class="my-12 p-8" />
     <div
-      class="[&>p]:prose [&>p]:prose-xl max-w-3xl mx-auto flex flex-col mt-14 gap-4"
+      class="mx-auto mt-4 flex max-w-3xl flex-col gap-4 [&>p]:prose [&>p]:prose-xl"
     >
       <p class="">
         I reviewed the existing product with all of its various front-end design
@@ -276,7 +290,7 @@ const final = await getImage({
         I established clear principles on how I think about the product and
         created guidelines for bringing those principles to life.
       </p>
-      <h2 class="mt-24 mb-4 font-syne font-bold text-2xl">A few problems...</h2>
+      <h2 class="mt-24 mb-4 font-syne text-2xl font-bold">A few problems...</h2>
       <p>
         <b class="font-medium">• Inconsistent design:</b> Every user interface feels
         & looks differently.
@@ -309,13 +323,15 @@ const final = await getImage({
   </section>
 
   <section
-    class="relative bg-designsystem-500 flex flex-col justify-center items-center py-28"
+    class="relative flex flex-col items-center justify-center bg-designsystem-500 py-28"
   >
-    <h1 class="font-syne font-bold text-4xl mb-28 text-white">
-      Business needs and <span class="text-designsystem-800">Goals</span>
+    <h1 class="mb-28 font-syne text-4xl font-bold text-white">
+      Business needs and <span class="text-white">Goals</span>
     </h1>
-    <div class="grid grid-cols-3 max-w-5xl mx-auto gap-12">
-      <div class="flex flex-col gap-4">
+    <div
+      class="mx-auto grid max-w-7xl grid-cols-3 gap-12 [&>div]:bg-designsystem-800/20"
+    >
+      <div class="flex flex-col gap-4 rounded-md p-12">
         <svg
           width="54"
           height="118"
@@ -340,14 +356,14 @@ const final = await getImage({
             fill="white"></path>
         </svg>
 
-        <h2 class="text-2xl text-white font-semibold font-syne">
+        <h2 class="font-syne text-2xl font-semibold text-white">
           Streamline the design process
         </h2>
-        <p class="text-slate-200">
+        <p class="prose prose-lg text-slate-200">
           Ensure it takes less time to build new modules for the system.
         </p>
       </div>
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-4 rounded-md p-12">
         <svg
           width="58"
           height="118"
@@ -372,7 +388,7 @@ const final = await getImage({
             fill="white"></path>
         </svg>
 
-        <h2 class="text-2xl text-white font-semibold font-syne">
+        <h2 class="font-syne text-2xl font-semibold text-white">
           Reusable UI components
         </h2>
         <p class="text-slate-200">
@@ -380,7 +396,7 @@ const final = await getImage({
           new.
         </p>
       </div>
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-4 rounded-md p-12">
         <svg
           width="58"
           height="118"
@@ -405,15 +421,15 @@ const final = await getImage({
             fill="white"></path>
         </svg>
 
-        <h2 class="text-2xl text-white font-semibold font-syne">
+        <h2 class="font-syne text-2xl font-semibold text-white">
           Consistent look and feel
         </h2>
-        <p class="text-slate-200">
+        <p class="prose prose-lg text-slate-200">
           Eliminate design inconsistencies so the whole system has one look &
           feel.
         </p>
       </div>
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-4 rounded-md p-12">
         <svg
           width="59"
           height="118"
@@ -438,15 +454,15 @@ const final = await getImage({
             fill="white"></path>
         </svg>
 
-        <h2 class="text-2xl text-white font-semibold font-syne">
+        <h2 class="font-syne text-2xl font-semibold text-white">
           Scalable design system
         </h2>
-        <p class="text-slate-200">
+        <p class="prose prose-lg text-slate-200">
           Increase the speed and scalability of design when using a design
           system.
         </p>
       </div>
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-4 rounded-md p-12">
         <svg
           width="59"
           height="118"
@@ -471,27 +487,27 @@ const final = await getImage({
             fill="white"></path>
         </svg>
 
-        <h2 class="text-2xl text-white font-semibold font-syne">Improved UX</h2>
-        <p class="text-slate-200">
+        <h2 class="font-syne text-2xl font-semibold text-white">Improved UX</h2>
+        <p class="prose prose-lg text-slate-200">
           Coherent design leads to improved user experience and less errors.
         </p>
       </div>
     </div>
   </section>
 
-  <section class="my-40 flex justify-center items-center">
+  <section class="my-40 mx-auto flex max-w-7xl items-center justify-center">
     <Image
       src={exampleHome}
       alt="examplehome"
-      class="border-8 border-designsystem shadow-2xl p-2"
+      class="shadow-xl rounded-sm bg-slate-50 p-2"
     />
   </section>
-  <section class="relative flex flex-col justify-center items-center py-28">
-    <h1 class="font-syne font-bold text-4xl mb-28">
+  <section class="relative flex flex-col items-center justify-center py-12">
+    <h1 class="mb-28 font-syne text-4xl font-bold">
       Product <span class="text-designsystem">Research</span>
     </h1>
-    <div class="grid grid-cols-3 max-w-5xl mx-auto gap-12">
-      <div class="flex flex-col gap-4">
+    <div class="mx-auto grid max-w-7xl grid-cols-3 gap-12">
+      <div class="flex flex-col gap-5">
         <svg
           width="100"
           height="95"
@@ -512,13 +528,13 @@ const final = await getImage({
             stroke-dasharray="3.87 3.87"></path>
         </svg>
 
-        <h2 class="text-2xl font-semibold font-syne">User Research</h2>
-        <p class="">
+        <h2 class="font-syne text-2xl font-semibold">User Research</h2>
+        <p class="prose prose-lg -mt-2">
           Understanding the users' needs, goals, and pain points through
           interviews and usability testing.
         </p>
       </div>
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-5">
         <svg
           width="100"
           height="95"
@@ -539,15 +555,15 @@ const final = await getImage({
             stroke-dasharray="6 6"></path>
         </svg>
 
-        <h2 class="text-2xl font-semibold font-syne">
+        <h2 class="font-syne text-2xl font-semibold">
           Audit of Design Systems
         </h2>
-        <p class="">
+        <p class="prose prose-lg -mt-2">
           Analyzing the most popular design systems and annotating their best
           practices and documentation guidelines.
         </p>
       </div>
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-5">
         <svg
           width="100"
           height="95"
@@ -676,13 +692,13 @@ const final = await getImage({
             stroke-dasharray="6 6"></path>
         </svg>
 
-        <h2 class="text-2xl font-semibold font-syne">Heuristic Evaluation</h2>
-        <p class="">
+        <h2 class="font-syne text-2xl font-semibold">Heuristic Evaluation</h2>
+        <p class="prose prose-lg -mt-2">
           Reviewing the existing product with all of its various front-end
           design elements to find inconsistencies.
         </p>
       </div>
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-5">
         <svg
           width="105"
           height="100"
@@ -715,13 +731,13 @@ const final = await getImage({
             stroke-dasharray="6 6"></path>
         </svg>
 
-        <h2 class="text-2xl font-semibold font-syne">Brand Research</h2>
-        <p class="">
+        <h2 class="font-syne text-2xl font-semibold">Brand Research</h2>
+        <p class="prose prose-lg -mt-2">
           Identifying the values through the mission statement and brand's
           visual style to ensure consistency across all design decisions.
         </p>
       </div>
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-5">
         <svg
           width="100"
           height="95"
@@ -748,10 +764,10 @@ const final = await getImage({
             stroke-dasharray="6 6"></path>
         </svg>
 
-        <h2 class="text-2xl font-semibold font-syne">
+        <h2 class="font-syne text-2xl font-semibold">
           Synthesis and Validation
         </h2>
-        <p class="">
+        <p class="prose prose-lg -mt-2">
           Combining the insights and findings from the previous steps to create
           a comprehensive design system.
         </p>
@@ -801,7 +817,7 @@ const final = await getImage({
         stroke-dasharray="6 6"></path>
     </svg>
     <svg
-      class="absolute -top-32 right-72"
+      class="absolute -top-32 right-60"
       width="153"
       height="402"
       viewBox="0 0 153 402"
@@ -817,10 +833,10 @@ const final = await getImage({
     </svg>
   </section>
   <section
-    class="relative bg-designsystem-500 flex flex-col justify-center items-center py-36 -z-20"
+    class="relative -z-20 flex flex-col items-center justify-center bg-designsystem-500 py-36"
   >
-    <h1 class="font-syne font-bold text-4xl text-white">
-      Design System <span class="text-designsystem-800">Inspirations</span>
+    <h1 class="font-syne text-4xl font-bold text-white">
+      Design System <span class="text-white">Inspirations</span>
     </h1>
     <p class="prose prose-xl mt-24 max-w-3xl text-white">
       I analyzed the five most popular design systems and annotated their best
@@ -959,13 +975,13 @@ const final = await getImage({
       </defs>
     </svg>
   </section>
-  <section class="relative flex flex-col justify-center items-center py-36">
-    <h1 class="font-syne font-bold text-4xl">
+  <section class="relative flex flex-col items-center justify-center py-36">
+    <h1 class="font-syne text-4xl font-bold">
       Design <span class="text-designsystem-500">Principles</span>
     </h1>
 
     <div
-      class="[&>p]:prose [&>p]:prose-xl max-w-3xl mx-auto flex flex-col mt-14 gap-4"
+      class="mx-auto mt-14 flex max-w-3xl flex-col gap-4 [&>p]:prose [&>p]:prose-xl"
     >
       <p class="">
         Since the company’s software was constantly evolving, my goal was to
@@ -978,8 +994,10 @@ const final = await getImage({
         organisms, etc.)
       </p>
 
-      <h2 class="mt-24 mb-4 font-bold text-2xl font-syne">Atomic Design</h2>
-      <p>Breaking down the interface into smaller, reusable components.</p>
+      <h2 class="mt-24 mb-4 font-syne text-2xl font-bold">Atomic Design</h2>
+      <p class="prose prose-lg">
+        Breaking down the interface into smaller, reusable components.
+      </p>
       <svg
         class="mt-24"
         width="500"
@@ -1336,20 +1354,20 @@ const final = await getImage({
           d="M441.533 129.046C441.533 129.564 441.414 130.04 441.176 130.474C440.938 130.899 440.573 131.243 440.08 131.506C439.587 131.77 438.975 131.902 438.244 131.902H436.893V135.114H434.713V126.165H438.244C438.958 126.165 439.561 126.288 440.054 126.534C440.547 126.781 440.917 127.121 441.163 127.554C441.41 127.988 441.533 128.485 441.533 129.046ZM438.078 130.168C438.495 130.168 438.805 130.07 439.009 129.874C439.213 129.679 439.315 129.403 439.315 129.046C439.315 128.689 439.213 128.413 439.009 128.217C438.805 128.022 438.495 127.924 438.078 127.924H436.893V130.168H438.078ZM442.235 131.545C442.235 130.814 442.371 130.172 442.643 129.62C442.923 129.067 443.301 128.642 443.777 128.345C444.253 128.047 444.784 127.898 445.371 127.898C445.872 127.898 446.31 128 446.684 128.204C447.066 128.408 447.36 128.676 447.564 129.008V128H449.744V135.114H447.564V134.107C447.351 134.439 447.054 134.706 446.671 134.91C446.297 135.114 445.86 135.216 445.358 135.216C444.78 135.216 444.253 135.068 443.777 134.77C443.301 134.464 442.923 134.035 442.643 133.482C442.371 132.921 442.235 132.276 442.235 131.545ZM447.564 131.557C447.564 131.013 447.411 130.584 447.105 130.27C446.807 129.955 446.442 129.798 446.008 129.798C445.575 129.798 445.205 129.955 444.899 130.27C444.602 130.576 444.453 131.001 444.453 131.545C444.453 132.089 444.602 132.522 444.899 132.845C445.205 133.159 445.575 133.317 446.008 133.317C446.442 133.317 446.807 133.159 447.105 132.845C447.411 132.53 447.564 132.101 447.564 131.557ZM454.024 127.898C454.525 127.898 454.963 128 455.337 128.204C455.719 128.408 456.012 128.676 456.216 129.008V128H458.397V135.102C458.397 135.756 458.265 136.347 458.001 136.874C457.746 137.409 457.351 137.834 456.816 138.148C456.289 138.463 455.63 138.62 454.84 138.62C453.786 138.62 452.932 138.369 452.277 137.868C451.623 137.375 451.249 136.704 451.155 135.854H453.31C453.378 136.126 453.539 136.338 453.794 136.491C454.049 136.653 454.364 136.733 454.738 136.733C455.188 136.733 455.545 136.602 455.809 136.338C456.08 136.083 456.216 135.671 456.216 135.102V134.094C456.004 134.426 455.711 134.698 455.337 134.91C454.963 135.114 454.525 135.216 454.024 135.216C453.437 135.216 452.906 135.068 452.43 134.77C451.954 134.464 451.576 134.035 451.295 133.482C451.023 132.921 450.887 132.276 450.887 131.545C450.887 130.814 451.023 130.172 451.295 129.62C451.576 129.067 451.954 128.642 452.43 128.345C452.906 128.047 453.437 127.898 454.024 127.898ZM456.216 131.557C456.216 131.013 456.063 130.584 455.758 130.27C455.46 129.955 455.095 129.798 454.661 129.798C454.228 129.798 453.858 129.955 453.552 130.27C453.254 130.576 453.106 131.001 453.106 131.545C453.106 132.089 453.254 132.522 453.552 132.845C453.858 133.159 454.228 133.317 454.661 133.317C455.095 133.317 455.46 133.159 455.758 132.845C456.063 132.53 456.216 132.101 456.216 131.557ZM466.68 131.443C466.68 131.647 466.667 131.859 466.641 132.08H461.708C461.742 132.522 461.882 132.862 462.128 133.1C462.383 133.329 462.693 133.444 463.059 133.444C463.603 133.444 463.981 133.215 464.194 132.756H466.514C466.395 133.223 466.178 133.644 465.864 134.018C465.558 134.392 465.171 134.685 464.704 134.898C464.236 135.11 463.713 135.216 463.135 135.216C462.438 135.216 461.818 135.068 461.274 134.77C460.73 134.473 460.305 134.048 459.999 133.495C459.693 132.943 459.54 132.297 459.54 131.557C459.54 130.818 459.689 130.172 459.986 129.62C460.292 129.067 460.717 128.642 461.261 128.345C461.805 128.047 462.43 127.898 463.135 127.898C463.824 127.898 464.436 128.043 464.971 128.332C465.507 128.621 465.923 129.033 466.221 129.569C466.527 130.104 466.68 130.729 466.68 131.443ZM464.449 130.869C464.449 130.495 464.321 130.197 464.066 129.976C463.811 129.755 463.492 129.645 463.11 129.645C462.744 129.645 462.434 129.751 462.179 129.964C461.933 130.176 461.78 130.478 461.72 130.869H464.449ZM470.724 135.216C470.103 135.216 469.551 135.11 469.066 134.898C468.582 134.685 468.199 134.396 467.919 134.031C467.638 133.657 467.481 133.24 467.447 132.781H469.602C469.627 133.028 469.742 133.227 469.946 133.38C470.15 133.533 470.401 133.61 470.698 133.61C470.97 133.61 471.178 133.559 471.323 133.457C471.476 133.346 471.552 133.206 471.552 133.036C471.552 132.832 471.446 132.683 471.234 132.59C471.021 132.488 470.677 132.378 470.201 132.259C469.691 132.14 469.266 132.016 468.926 131.889C468.586 131.753 468.293 131.545 468.046 131.264C467.8 130.975 467.677 130.588 467.677 130.104C467.677 129.696 467.787 129.326 468.008 128.995C468.238 128.655 468.569 128.387 469.003 128.192C469.445 127.996 469.967 127.898 470.571 127.898C471.463 127.898 472.164 128.119 472.674 128.561C473.193 129.003 473.49 129.59 473.567 130.321H471.552C471.518 130.074 471.408 129.879 471.221 129.734C471.042 129.59 470.804 129.518 470.507 129.518C470.252 129.518 470.056 129.569 469.92 129.67C469.785 129.764 469.717 129.896 469.717 130.066C469.717 130.27 469.823 130.423 470.035 130.525C470.256 130.627 470.596 130.729 471.055 130.831C471.582 130.967 472.011 131.103 472.343 131.239C472.674 131.366 472.963 131.579 473.21 131.876C473.465 132.165 473.596 132.556 473.605 133.049C473.605 133.465 473.486 133.839 473.248 134.171C473.018 134.494 472.683 134.749 472.241 134.936C471.807 135.123 471.302 135.216 470.724 135.216Z"
           fill="black"></path>
       </svg>
-      <h2 class="mt-24 mb-4 font-bold text-2xl font-syne">Typography</h2>
-      <p>
+      <h2 class="mt-24 mb-4 font-syne text-2xl font-bold">Typography</h2>
+      <p class="prose prose-lg">
         I chose the geometric sans-serif font - Poppins in three weights, bold,
         semi-bold and regular, because it’s highly readable and excellent for
         web and mobile.
       </p>
     </div>
-    <Image src={typography} alt="typography" class="mt-12" />
+    <Image src={typography} alt="typography" class="mt-12 rounded-sm" />
 
     <div
-      class="[&>p]:prose [&>p]:prose-xl max-w-3xl mx-auto flex flex-col mt-12 gap-4"
+      class="mx-auto mt-12 flex max-w-3xl flex-col gap-4 [&>p]:prose [&>p]:prose-xl"
     >
-      <h2 class="mt-24 mb-4 font-bold text-2xl font-syne">Color Palette</h2>
-      <p>
+      <h2 class="mt-24 mb-4 font-syne text-2xl font-bold">Color Palette</h2>
+      <p class="prose prose-lg">
         Our color swatches were broken down to base, primary, secondary,
         shareable, error, warning and success color swatches spread across
         several tints. This proved to be flexible enough for use but also
@@ -4932,9 +4950,9 @@ const final = await getImage({
     </svg>
 
     <div
-      class="[&>p]:prose [&>p]:prose-xl max-w-3xl mx-auto flex flex-col mt-12 gap-4"
+      class="mx-auto mt-12 flex max-w-3xl flex-col gap-4 [&>p]:prose [&>p]:prose-xl"
     >
-      <h2 class="mt-24 mb-4 font-bold text-2xl font-syne">Buttons</h2>
+      <h2 class="mt-24 mb-4 font-syne text-2xl font-bold">Buttons</h2>
       <p>
         The button components inherited identified earlier typography styles,
         color schemes, spacing, corner radiuses, and shadows for different sizes
@@ -8853,9 +8871,9 @@ const final = await getImage({
     </svg>
 
     <div
-      class="[&>p]:prose [&>p]:prose-xl max-w-3xl mx-auto flex flex-col mt-12 gap-4"
+      class="mx-auto mt-12 flex max-w-3xl flex-col gap-4 [&>p]:prose [&>p]:prose-xl"
     >
-      <h2 class="mt-24 mb-4 font-bold text-2xl font-syne">Accessibility</h2>
+      <h2 class="mt-24 mb-4 font-syne text-2xl font-bold">Accessibility</h2>
       <p>
         Designing with accessibility principles in mind means creating better
         experiences for all users.
@@ -9053,9 +9071,9 @@ const final = await getImage({
     </div>
 
     <div
-      class="[&>p]:prose [&>p]:prose-xl max-w-3xl mx-auto flex flex-col mt-12 gap-4"
+      class="mx-auto mt-12 flex max-w-3xl flex-col gap-4 [&>p]:prose [&>p]:prose-xl"
     >
-      <h2 class="mt-24 mb-4 font-bold text-2xl font-syne">Documentation</h2>
+      <h2 class="mt-24 mb-4 font-syne text-2xl font-bold">Documentation</h2>
       <p>
         Ensuring that the design is well-documented and easily understandable by
         all members of the team.
@@ -9267,11 +9285,11 @@ const final = await getImage({
     </svg>
   </section>
   <section
-    class="relative bg-designsystem-500 flex flex-col justify-center items-center py-36"
+    class="relative flex max-w-full flex-col items-center justify-center bg-designsystem-500 py-36"
   >
-    <h1 class="font-syne font-bold text-4xl text-white">Collaboration</h1>
+    <h1 class="font-syne text-4xl font-bold text-white">Collaboration</h1>
     <div
-      class="[&>p]:prose [&>p]:prose-xl [&>p]:text-white max-w-3xl mx-auto flex flex-col mt-14 gap-4"
+      class="mx-auto mt-14 flex max-w-3xl flex-col gap-4 [&>p]:prose [&>p]:prose-xl [&>p]:text-white"
     >
       <p class="">
         Engineers and I created a shared Figma file and the project’s timeline
@@ -9283,18 +9301,18 @@ const final = await getImage({
       <Image
         src={collaboration}
         alt="collaboration1"
-        class="shadow-2xl mt-12 p-2"
+        class="shadow-2xl mt-12 p-2 rounded-sm"
       />
       <Image
         src={collaboration2}
         alt="collaboration2"
-        class="shadow-2xl mt-12 p-2"
+        class="shadow-2xl mt-12 p-2 rounded-sm"
       />
     </div>
   </section>
 
-  <section class="relative flex flex-col justify-center items-center py-36">
-    <h1 class="font-syne font-bold text-4xl">
+  <section class="relative flex flex-col items-center justify-center py-36">
+    <h1 class="font-syne text-4xl font-bold">
       Final <span class="text-designsystem-500">Designs</span>
     </h1>
     <!-- <Image src={final} alt="final" class="mt-24" /> -->
@@ -9310,10 +9328,10 @@ const final = await getImage({
       <source src={"/images/design-system-showcase.mp4"} type="video/mp4" />
     </video>
   </section>
-  <section class="relative flex flex-col justify-center items-center py-36">
-    <h1 class="font-syne font-bold text-4xl">Testimonials</h1>
+  <section class="relative flex flex-col items-center justify-center py-36">
+    <h1 class="font-syne text-4xl font-bold">Testimonials</h1>
     <div
-      class="[&>p]:prose [&>p]:prose-xl max-w-3xl mx-auto flex flex-col mt-14 gap-4"
+      class="mx-auto mt-14 flex max-w-3xl flex-col gap-4 [&>p]:prose [&>p]:prose-xl"
     >
       <p class="">
         I have had the pleasure of working with Iuliia on a design system
@@ -9352,48 +9370,27 @@ const final = await getImage({
     </div>
   </section>
 
-  <section class="my-36 flex flex-col items-center justify-center">
-    <h1 class="font-syne font-bold text-4xl">
+  <footer class="my-36 flex flex-col items-center justify-center">
+    <h1 class="font-syne text-4xl font-bold">
       Have a <span class="text-designsystem">Project&nbsp;</span><span class=""
         >in mind?</span
       >
     </h1>
-    <div class="flex flex-col items-center align-center">
+    <div class="align-center flex flex-col items-center">
       <a
         href=`mailto:${site.email}?Subject=Let%27s talk about`
-        class="mt-24 w-64 h-64 rounded-full flex flex-col items-center align-center justify-center text-white font-bold bg-gradient-to-tr from-designsystem-500 to-designsystem-800/70 hover:bg-slate-200 text-2xl"
+        class="align-center mt-24 flex h-64 w-64 flex-col items-center justify-center rounded-full bg-gradient-to-tr from-designsystem-500 to-designsystem-800/70 text-2xl font-bold text-white hover:bg-slate-200"
         >Let's talk about it!</a
       >
-    </div>
-  </section>
 
-  <footer
-    class="bg-designsystem-800 mt-28 p-28 relative overflow-hidden shadow-md"
-  >
-    <div class="max-w-7xl mx-auto flex flex-col gap-4">
-      <a href="/">
-        <h1 class="text-3xl font-semibold text-white">{site.name}</h1>
-      </a>
-      <a
-        href=`mailto:${site.email}?Subject=Let%27s talk about`
-        class="text-lg text-white">{site.email}</a
-      >
-
-      <div class="flex justify-start gap-4 pt-2">
-        {
-          site.socialLinks.map(({ href, text, pack, name }) => (
-            <a
-              href={href}
-              title={text}
-              class="text-neutral-300 hover:text-neutral-100 "
-            >
-              <span class="sr-only">{text}</span>
-              <Sprite pack={pack} name={name} size={24} aria-hidden="true" />
-            </a>
-          ))
-        }
+      <div class="mt-48 flex flex-row gap-12">
+        <div
+          class="flex items-center gap-2 rounded-md bg-slate-200 px-8 py-4 transition-colors duration-200 hover:bg-slate-300"
+        >
+          <Sprite pack="ic" name="round-arrow-back" size={24} />
+          <a class="" href="/">Go back</a>
+        </div>
       </div>
     </div>
-    <!-- <p class="prose prose-xl mt-4 max-w-3xl font-bold">Atomic Design</p> -->
   </footer>
 </Layout>

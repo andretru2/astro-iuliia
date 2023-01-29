@@ -21,9 +21,9 @@ const { hero = false, class: className = "", ...head } = Astro.props as Props;
 
   <body class="">
     <!-- Required ONCE per page as a parent of any <Sprite> components! Creates `<symbol>` for each icon -->
+
     <Sprite.Provider>
       <Header hero={hero} />
-
       <main class:list={[" z-0 ", className]}>
         <slot />
       </main>
