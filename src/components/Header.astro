@@ -27,16 +27,16 @@ const links: Link[] = [
 ];
 ---
 
-<header id="navbar" class:list={["absolute top-0 left-0 right-0 z-20 pt-6"]}>
+<header id="navbar" class:list={["absolute top-0 left-0 right-0 z-20"]}>
   <!-- <SkipToContent /> -->
-  <div class="py-4 text-sm font-light">
+  <div class="pt-10 text-sm font-light">
     <nav
-      class="relative mx-auto flex max-h-16 max-w-7xl items-center justify-between"
+      class="relative mx-auto flex max-w-7xl items-center justify-between"
       aria-label="Global"
     >
       <div class="flex flex-1 flex-col items-center gap-y-6 sm:flex-row">
         <div class="flex w-full items-center justify-between md:w-auto">
-          <a href="/" class="" id="navlogo">
+          <a href="/" class="cursor-pointer" id="navlogo">
             <img src={logo} alt="logo" />
           </a>
           <div class="flex items-center sm:hidden">
@@ -60,7 +60,7 @@ const links: Link[] = [
         >
           {
             links.map(({ href, text }) => (
-              <a href={href} class="p-4 text-lg hover:text-neutral-500">
+              <a href={href} class=" text-lg hover:text-neutral-500">
                 {text}
               </a>
             ))

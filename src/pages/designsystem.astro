@@ -331,7 +331,7 @@ const final = await getImage({
     <div
       class="mx-auto grid max-w-7xl grid-cols-3 gap-12 [&>div]:bg-designsystem-800/20"
     >
-      <div class="flex flex-col gap-4 rounded-md p-12">
+      <div class="flex flex-col gap-4 rounded-sm p-12">
         <svg
           width="54"
           height="118"
@@ -363,7 +363,7 @@ const final = await getImage({
           Ensure it takes less time to build new modules for the system.
         </p>
       </div>
-      <div class="flex flex-col gap-4 rounded-md p-12">
+      <div class="flex flex-col gap-4 rounded-sm p-12">
         <svg
           width="58"
           height="118"
@@ -396,7 +396,7 @@ const final = await getImage({
           new.
         </p>
       </div>
-      <div class="flex flex-col gap-4 rounded-md p-12">
+      <div class="flex flex-col gap-4 rounded-sm p-12">
         <svg
           width="58"
           height="118"
@@ -429,7 +429,7 @@ const final = await getImage({
           feel.
         </p>
       </div>
-      <div class="flex flex-col gap-4 rounded-md p-12">
+      <div class="flex flex-col gap-4 rounded-sm p-12">
         <svg
           width="59"
           height="118"
@@ -462,7 +462,7 @@ const final = await getImage({
           system.
         </p>
       </div>
-      <div class="flex flex-col gap-4 rounded-md p-12">
+      <div class="flex flex-col gap-4 rounded-sm p-12">
         <svg
           width="59"
           height="118"
@@ -9376,7 +9376,7 @@ const final = await getImage({
         >in mind?</span
       >
     </h1>
-    <div class="align-center flex flex-col items-center">
+    <a class="align-center flex flex-col items-center">
       <a
         href=`mailto:${site.email}?Subject=Let%27s talk about`
         class="align-center mt-24 flex h-64 w-64 flex-col items-center justify-center rounded-full bg-gradient-to-tr from-designsystem-500 to-designsystem-800/70 text-2xl font-bold text-white hover:bg-slate-200"
@@ -9384,13 +9384,14 @@ const final = await getImage({
       >
 
       <div class="mt-48 flex flex-row gap-12">
-        <div
-          class="flex items-center gap-2 rounded-md bg-slate-200 px-8 py-4 transition-colors duration-200 hover:bg-slate-300"
+        <a
+          href="/"
+          class="flex items-center gap-2 rounded-sm bg-slate-200 px-8 py-4 transition-colors duration-200 hover:bg-slate-300"
         >
           <Sprite pack="ic" name="round-arrow-back" size={24} />
-          <a class="" href="/">Go back</a>
-        </div>
+          <span class="">Go back</span>
+        </a>
       </div>
-    </div>
+    </a>
   </footer>
 </Layout>
