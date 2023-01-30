@@ -3,7 +3,7 @@ import { getImage } from "@astrojs/image";
 // import SEO from "simple-astro-seo";
 import { SEO } from "astro-seo";
 import site from "@src/data/site.js";
-import { GoogleAnalytics } from 'astro-google-analytics';
+import { GoogleAnalytics } from "astro-google-analytics";
 
 // import "@fontsource/Poppins/800.css";
 import "@fontsource/poppins/800.css";
@@ -39,6 +39,7 @@ const resolvedImage = await getImage({
   width: 1200,
   aspectRatio: 2,
   format: "jpeg",
+  alt: "iuliia",
 });
 const resolvedImageWithDomain = new URL(
   resolvedImage.src,
@@ -59,7 +60,7 @@ const title = site.title ? site.title : "Iuliia | Creative UI/UX Designer";
 
 <title set:html={(title, "Iuliia | Design")} />
 
-  <GoogleAnalytics id="G-Q7H5NY0Q1B" />
+<GoogleAnalytics id="G-Q7H5NY0Q1B" />
 
 <!-- <SEO
   siteName={title}
@@ -72,9 +73,28 @@ const title = site.title ? site.title : "Iuliia | Creative UI/UX Designer";
 <SEO
   title={title}
   description={description}
+  canonical={canonicalURL}
+  twitter={{
+    creator: "@iuliiadesign",
+    site: "iuliiadesign.com",
+  }}
+  openGraph={{
+    basic: {
+      url: canonicalURL,
+      type: "website",
+      title: `Iuliia Design - Creative UI UX Designer`,
+      image: resolvedImageWithDomain,
+    },
+    image: {
+      alt: "Iuliia Design",
+    },
+  }}
+/>
+<!-- 
+<SEO
+  title={title}
+  description={description}
   twitter={{
     creator: "@iuliiadesign",
   }}
-/>
-
-
+/> -->

@@ -15,7 +15,7 @@ const PROJECTS: Project[] = [
     description:
       "Constructed a robust library of polished, production-ready reusable UI components with specifications and documentation as part of a scalable Design System.",
     image: {
-      src: "images/design-system-showcase.mp4",
+      src: "/src/images/design-system-showcase.mp4",
       alt: "designsystem",
     },
     url: {
@@ -34,7 +34,7 @@ const PROJECTS: Project[] = [
     description:
       "Here’s how we helped users of micro-mobility services more easily see available vehicles in their area and feel more comfortable on the roads.",
     image: {
-      src: "images/unicycle-showcase.mp4",
+      src: "/src/images/unicycle-showcase.mp4",
       alt: "unicycle",
     },
     url: {
@@ -54,7 +54,7 @@ const PROJECTS: Project[] = [
     description:
       "What’s in your fridge? We increased NYC community engagement by making food donations easy and convenient.",
     image: {
-      src: "images/fridges-showcase.mp4",
+      src: "/src/images/fridges-showcase.mp4",
       alt: "fridges",
     },
     url: {
@@ -74,7 +74,7 @@ const PROJECTS: Project[] = [
     description:
       "Want to travel to space? We created a futuristic app for travelers to buy tickets and become informed about the preparation process, safety measures, and risks all in one place.",
     image: {
-      src: "images/jupo-showcase.mp4",
+      src: "/src/images/jupo-showcase.mp4",
       alt: "jupo",
     },
     url: {
@@ -91,8 +91,8 @@ const PROJECTS: Project[] = [
 ];
 ---
 
-<section class="bg-white relative">
-  <div id="work" class="flex flex-col gap-48 mt-28">
+<section class="relative bg-white">
+  <div id="work" class="mt-28 flex flex-col gap-48">
     {
       PROJECTS.map((project, i) => (
         <div>

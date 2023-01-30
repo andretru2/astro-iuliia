@@ -1,5 +1,6 @@
 import type { Site } from "@src/types.js";
-import social from "@assets/social.jpg";
+import social from "../images/Logo.svg";
+// import social from "@images/social.svg";
 
 const site: Site = {
   name: "Iuliia.Design",
