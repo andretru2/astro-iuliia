@@ -1,7 +1,7 @@
 ---
-import { Image, Picture } from "@astrojs/image/components";
+import { Image } from "@astrojs/image/components";
 // import heroImg from "@assets/Hero_iuliia_v4.png";
-import heroImg from "@images/heroimg.png";
+// import heroImg from "@images/heroimg.png";
 // import heroImg from "@images/Me6.png";
 
 // const hero = await getImage({
@@ -16,15 +16,6 @@ import heroImg from "@images/heroimg.png";
 // const widths = [];
 // const heights = [];
 ---
-
-<Image
-  class="absolute right-[-70px] sm:right-0 top-28 hero z-[10] animate-fadeInRight h-max"
-  src={heroImg}
-  alt="hero image"
-  position="right top"
-  aspectRatio="1"
-  data-observexx
-/>
 
 <!-- <script>
   const options = {
@@ -55,8 +46,7 @@ import heroImg from "@images/heroimg.png";
     console.log(element);
     observer.observe(element);
   });
-</script> -->
-<!-- <Picture
+</script> --><!-- <Picture
   class="absolute right-0 top-0 hero z-[0] opacity-60 md:opacity-100 max-w-md"
   src={heroImg}
   alt="hero image"
@@ -64,9 +54,7 @@ import heroImg from "@images/heroimg.png";
   widths={[560, 883, 1300]}
   aspectRatio="2:3"
   sizes=" (max-width: 767px) 560px, 883px"
-/> -->
-
-<!-- <style>
+/> --><!-- <style>
   .hero {
     width: clamp(400px, 60vmax, 800px);
     height: clamp(400px, 100vmax, 1300px);

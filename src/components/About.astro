@@ -3,35 +3,27 @@ import SectionTitle from "@components/SectionTitle.astro";
 import { Image } from "@astrojs/image/components";
 import Skills from "@components/Skills.astro";
 import { getImage } from "@astrojs/image";
-
-const profile = await getImage({
-  src: "../../public/images/about-profile.png",
-  width: 800,
-  height: 800,
-  aspectRatio: 1,
-  format: "jpeg",
-});
 ---
 
 <section id="about" class="mt-36">
   <div class="relative w-full pt-20">
     <h1
-      class="absolute font-nunito text-[342px] text-[#4A4A4A] opacity-10 font-extrabold text-center inset-x-0 bottom-0"
+      class="absolute inset-x-0 bottom-0 text-center font-nunito text-[342px] font-extrabold text-[#4A4A4A] opacity-10"
     >
       Привет
     </h1>
     <h2
-      class="absolute text-[132px] text-[#1C1B1B] font-extrabold transition-transform inset-x-0 bottom-0 left-48 -translate-y-30"
+      class="-translate-y-30 absolute inset-x-0 bottom-0 left-48 text-[132px] font-extrabold text-[#1C1B1B] transition-transform"
     >
       Hello
     </h2>
     <h3
-      class="absolute font-nunito top-[40%] left-[80%] text-8xl text-[#9A9A9A] font-light"
+      class="absolute top-[40%] left-[80%] font-nunito text-8xl font-light text-[#9A9A9A]"
     >
       Hola
     </h3>
   </div>
-  <article class="prose-xl prose-neutral max-w-4xl mx-auto pt-20">
+  <article class="prose-xl prose-neutral mx-auto max-w-4xl pt-20">
     <p>
       I am Iuliia (i u l i i a), a New York-based UX UI designer from Ukraine
       🇺🇦.
@@ -55,27 +47,19 @@ const profile = await getImage({
     <Skills />
   </article>
 
-  <div class="pt-[500px] relative flex items-center justify-center">
-    <Image
-      class:list={[" absolute bg-local bg-cover z-10 mx-auto top-   "]}
-      loading="lazy"
-      src={import("../images/photo-fyea.png")}
-      aspectRatio="1"
-      alt="Skills"
-    />
-  </div>
+  <div class="relative flex items-center justify-center pt-[500px]"></div>
 
   <div
-    class="pt-96 pb-20 flex flex-col items-center justify-center bg-[linear-gradient(176.31deg,_#351E06_3.03%,_#050300_48.69%)] opacity-80"
+    class="flex flex-col items-center justify-center bg-[linear-gradient(176.31deg,_#351E06_3.03%,_#050300_48.69%)] pt-96 pb-20 opacity-80"
   >
     <h1
       data-observe
-      class="pt-40 text-center leading-loose p-4 text-3xl text-white font-bold"
+      class="p-4 pt-40 text-center text-3xl font-bold leading-loose text-white"
     >
       DRIVEN BY
       <p
         data-observe
-        class="py-2 font-black text-8xl text-transparent text-[#FFCB00]"
+        class="py-2 text-8xl font-black text-transparent text-[#FFCB00]"
       >
         F*CK YEAH!
       </p>
@@ -83,11 +67,11 @@ const profile = await getImage({
     </h1>
     <blockquote
       data-observe
-      class="py-12 text-2xl font-light text-center text-gray-300"
+      class="py-12 text-center text-2xl font-light text-gray-300"
     >
       <svg
         aria-hidden="true"
-        class="w-12 h-12 text-gray-300"
+        class="h-12 w-12 text-gray-300"
         viewBox="0 0 24 27"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
