@@ -1,9 +1,10 @@
 ---
 import type { Link } from "@src/types.js";
-
 import logo from "@images/Logo.svg";
-
-// import hamburguer from "@assets/IconHamburguer.svg";
+import Logo from "@components/Logo.astro";
+import { Icon } from "astro-icon";
+import site from "@data/site";
+import { getImage } from "@astrojs/image";
 
 export interface Props {
   hero?: boolean;
@@ -23,7 +24,10 @@ const links: Link[] = [
 ];
 ---
 
-<header id="navbar" class:list={["absolute top-0 left-0 right-0 z-20"]}>
+<header
+  id="navheader"
+  class:list={["fixed top-0 left-0 right-0 z-20 px-4 md:px-0"]}
+>
   <!-- <SkipToContent /> -->
   <div class="pt-10 text-sm font-light">
     <nav
@@ -33,24 +37,30 @@ const links: Link[] = [
       <div class="flex flex-1 flex-col items-center gap-y-6 sm:flex-row">
         <div class="flex w-full items-center justify-between md:w-auto">
           <a href="/" class="cursor-pointer" id="navlogo">
-            <img src={logo} alt="logo" />
+            <Logo />
+            <!-- <img src={logo} alt="logo" /> -->
           </a>
           <div class="flex items-center sm:hidden">
             <button
+              id="menubtn"
               type="button"
               class="inline-flex cursor-pointer items-center justify-center p-2"
               aria-expanded="false"
             >
               <span class="sr-only">Open main menu</span>
-              <img id="menubtn" src="" alt="menu" />
-              <!-- <img id="menuclose" src={iconClose} alt="close" /> -->
+              <Icon
+                pack="heroicons-outline"
+                name="menu"
+                size={24}
+                aria-hidden="true"
+              />
             </button>
           </div>
         </div>
         <div
           id="menu"
           class:list={[
-            "flex flex-col gap-x-8 text-center sm:ml-auto sm:flex-row sm:gap-y-4 sm:text-left ",
+            "flex flex-col gap-x-12 text-center sm:ml-auto sm:flex-row sm:gap-y-4 sm:text-left  ",
             !hero ? "hidden " : "block",
           ]}
         >
@@ -62,7 +72,7 @@ const links: Link[] = [
             ))
           }
 
-          <!-- <div id="mobilesocial" class="flex flex-row">
+          <div id="mobilesocial" class="flex flex-row sm:hidden">
             {
               site.socialLinks.map(({ href, text, pack, name }) => (
                 <a href={href} class="p-4" title={text}>
@@ -75,46 +85,40 @@ const links: Link[] = [
                   />
                 </a>
               ))
-            } -->
+            }
+          </div>
         </div>
       </div>
     </nav>
   </div>
+
+  <script>
+    const header = document.getElementById("navheader");
+    const menuBtn = document.getElementById("menubtn");
+    const logo = document.getElementById("navlogo");
+
+    menuBtn.onclick = () => header?.classList.toggle("open");
+  </script>
+
+  <style>
+    @media (max-width: 768px) {
+      header:not(.open) :is(#menu, #mobilesocial) {
+        @apply hidden;
+      }
+
+      header.open {
+        @apply min-h-screen;
+      }
+    }
+
+    @media screen (height: 100vmax) {
+      header :is(#menu > *) {
+        @apply font-semibold text-gray-800;
+      }
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </header>
-
-<script is:inline>
-  const header = document.getElementById("navheader");
-  const menuBtn = document.getElementById("menubtn");
-  // const menuClose = document.getElementById("menuclose");
-  // const logox = document.getElementById("navlogo");
-
-  menuBtn.onclick = () => {
-    header.classList.toggle("open");
-    // menuBtn.src = {iconClose };
-    // menuClose.style.display = "none";
-    // menuBtn.classList.toggle("invisible");
-    // menuClose.classList.toggle("visible");
-  };
-</script>
-
-<style>
-  @media (max-width: 768px) {
-    header:not(.open) :is(#menu, #mobilesocial) {
-      @apply hidden;
-    }
-
-    header.open {
-      @apply min-h-screen;
-    }
-  }
-
-  @media screen (height: 100vmax) {
-    header :is(#menu > *) {
-      @apply font-semibold text-gray-800;
-    }
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-</style>
