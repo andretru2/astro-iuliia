@@ -1,10 +1,8 @@
 ---
 import type { Link } from "@src/types.js";
-import logo from "@images/Logo.svg";
 import Logo from "@components/Logo.astro";
 import { Icon } from "astro-icon";
 import site from "@data/site";
-import { getImage } from "@astrojs/image";
 
 export interface Props {
   hero?: boolean;
@@ -38,7 +36,6 @@ const links: Link[] = [
         <div class="flex w-full items-center justify-between md:w-auto">
           <a href="/" class="cursor-pointer" id="navlogo">
             <Logo />
-            <!-- <img src={logo} alt="logo" /> -->
           </a>
           <div class="flex items-center sm:hidden">
             <button
