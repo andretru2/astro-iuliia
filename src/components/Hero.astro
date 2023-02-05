@@ -1,10 +1,9 @@
 ---
 import CallToAction from "@components/CallToAction.astro";
-import site from "@src/data/site.js";
 ---
 
 <section
-  class="relative mx-auto flex h-screen max-w-7xl flex-col items-center justify-center"
+  class="relative mx-auto flex h-screen max-w-7xl flex-col items-center justify-center px-8 sm:px-0"
 >
   <div class="flex flex-col items-center gap-3 [&>*]:animate-fadeInUp">
     <h1
@@ -12,7 +11,7 @@ import site from "@src/data/site.js";
     >
       CREATIVE UI/UX <p class="text-designsystem sm:pt-4">DESIGNER</p>
     </h1>
-    <p class="animation-delay:1.4s prose-md prose mt-4 text-center sm:prose-xl">
+    <p class="animation-delay:1.4s prose prose-lg mt-4 text-center sm:prose-xl">
       With a unique blend of business acumen and strong visual design skills,
       driving revenue growth through user-centered designs.
     </p>
@@ -39,7 +38,7 @@ import site from "@src/data/site.js";
       fill="#DBEAFE"></path>
   </svg>
   <svg
-    class="absolute -bottom-24 right-[2%] sm:-bottom-12 sm:right-[25%]"
+    class="absolute -bottom-16 right-[2%] -z-10 sm:-bottom-12 sm:right-[25%]"
     width="153"
     height="402"
     viewBox="0 0 153 402"

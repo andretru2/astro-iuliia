@@ -21,7 +21,7 @@ const { hero = false, class: className = "", ...head } = Astro.props as Props;
 
   <body>
     <Sprite.Provider>
-      <div class="flex min-h-screen flex-col overflow-x-hidden px-4">
+      <div class="flex min-h-screen flex-col overflow-x-hidden sm:px-0">
         <Header hero={hero} />
 
         <main class:list={["flex-1", className]}>
