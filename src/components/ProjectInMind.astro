@@ -1,0 +1,18 @@
+---
+import SectionTitle from "./SectionTitle.astro";
+import site from "@data/site";
+---
+
+<section
+  id="project-in-mind"
+  class="relative mt-20 flex flex-col items-center justify-center"
+>
+  <SectionTitle title1="Have a " title2="Project in Mind?" />
+  <div class="align-center flex flex-col items-center">
+    <a
+      href=`mailto:${site.email}?Subject=Let%27s talk about`
+      class="align-center flex h-64 w-64 flex-col items-center justify-center rounded-full bg-gradient-to-tr from-designsystem-500 to-designsystem-800/70 text-2xl font-bold text-white hover:bg-slate-200 sm:my-12"
+      >Let's talk about it!</a
+    >
+  </div>
+</section>

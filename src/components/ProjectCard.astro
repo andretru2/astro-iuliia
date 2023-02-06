@@ -1,6 +1,5 @@
 ---
 import type { Project } from "@src/types.js";
-import { Image } from "@astrojs/image/components";
 import Chip from "@components/Chip.astro";
 import { Sprite } from "astro-icon";
 
@@ -10,7 +9,7 @@ export interface Props {
   reverse?: boolean;
 }
 
-const { key, project, reverse = true } = Astro.props as Props;
+const { key, project } = Astro.props as Props;
 // const margin = alternate ? "ml-auto" : "mr-auto";
 // const margin = "m-auto";
 // const maxHeight = "max-h-[41rem]";
@@ -19,7 +18,10 @@ const { key, project, reverse = true } = Astro.props as Props;
 // const bg = "#aaa";
 ---
 
-<article id={key} class:list={[" relative isolate max-w-7xl rounded"]}>
+<article
+  id={key}
+  class:list={[" relative isolate max-w-xs sm:max-w-7xl mx-auto rounded-sm"]}
+>
   <a
     hidden={project.disabled}
     class="absolute inset-0 z-10"
@@ -29,12 +31,12 @@ const { key, project, reverse = true } = Astro.props as Props;
     <span class="sr-only">Learn more about {project.title}</span>
   </a>
 
-  <div class:list={["card tilt preserve3d grid grid-flow-row gap-8"]}>
+  <div class:list={["sm:card sm:tilt sm:preserve3d grid grid-flow-row gap-8"]}>
     <div
-      class="flex py-10 px-8 items-center justify-center w-full shadow-xl rounded-sm bg-slate-50"
+      class="flex w-full items-center justify-center rounded-sm bg-slate-50 py-6 px-3 shadow-xl sm:py-10 sm:px-8"
     >
       <video
-        class:list={["video preserve3d sm:max-h-[40rem] "]}
+        class:list={["video small:preserve3d h-72 sm:h-max sm:max-h-[40rem] "]}
         autoplay
         loop
       >
@@ -44,11 +46,11 @@ const { key, project, reverse = true } = Astro.props as Props;
 
     <div class:list={[" flex flex-col mt-4 "]}>
       <h1
-        class="title preserve3d font-syne text-4xl text-gray-900 font-bold line-clamp-3  h-fit pb-4"
+        class="title small:preserve3d h-fit pb-4 font-syne text-2xl font-bold text-gray-900 line-clamp-3 sm:text-4xl"
       >
         {project.title}
       </h1>
-      <ol class="flex flex-row gap-2 tag preserve3d pt-1">
+      <ol class="tag preserve3d flex flex-row gap-2 pt-1">
         {
           project.tags.map((tag) => {
             return (
@@ -59,14 +61,14 @@ const { key, project, reverse = true } = Astro.props as Props;
           })
         }
       </ol>
-      <p class="pt-6 description preserve3d prose prose-md">
+      <p class="description preserve3d prose prose-sm pt-6 sm:prose-lg">
         {project.description}
       </p>
 
       <button
         disabled={project.disabled}
         class:list={[
-          " rounded-sm mt-6 grow-0 text-lg w-max px-7 py-2 text-white bg-designsystem-500 hover:bg-slate-200",
+          " rounded-sm mt-6 grow-0 text-sm sm:text-lg w-max px-4 py-2 sm:px-7  text-white bg-designsystem-500 hover:bg-slate-200",
           project.disabled ? "cursor-none bg-gray-200 text-gray-900" : "",
         ]}
         >View Case

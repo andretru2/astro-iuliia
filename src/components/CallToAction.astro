@@ -1,17 +1,14 @@
 ---
 import CopyToClipboard from "@components/CopyToClipboard.astro";
 import { Sprite } from "astro-icon";
-import site from "@data/site";
 
 export interface Props {
-  href?: string;
   copyToClipboard?: boolean;
   primary?: boolean;
   class?: string;
 }
 
 const {
-  href,
   copyToClipboard = false,
   primary = true,
   class: className,
@@ -21,13 +18,19 @@ const {
 {copyToClipboard && <CopyToClipboard />}
 
 <a
-  href=`mailto:${site.email}?Subject=Let%27s talk about`
+  href="#work"
   class:list={[
-    `rounded-sm  ripple px-12 py-4 text-white bg-designsystem text-lg sm:text-lg  sm:font-semibold cursor-pointer`,
+    `rounded-sm ripple pl-6 pr-6 sm:px-12 py-3 sm:py-4 text-white bg-designsystem text-md sm:text-lg  sm:font-semibold cursor-pointer`,
     className,
   ]}
-  ><slot />
-  <Sprite class="inline" pack="ic" name="round-arrow-forward" size={24} />
+>
+  See Projects {"  "}
+  <Sprite
+    class="inline animate-ping pl-1"
+    pack="ic"
+    name="round-arrow-downward"
+    size={16}
+  />
 </a>
 
 <style>

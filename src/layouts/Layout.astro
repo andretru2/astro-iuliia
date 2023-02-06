@@ -19,16 +19,17 @@ const { hero = false, class: className = "", ...head } = Astro.props as Props;
     <BaseHead {...head} />
   </head>
 
-  <body class="">
-    <!-- Required ONCE per page as a parent of any <Sprite> components! Creates `<symbol>` for each icon -->
-
+  <body>
     <Sprite.Provider>
-      <Header hero={hero} />
-      <main class:list={[" z-0 ", className]}>
-        <slot />
-      </main>
+      <div class="flex min-h-screen flex-col overflow-x-hidden sm:px-0">
+        <Header hero={hero} />
 
-      <!-- <Footer /> -->
+        <main class:list={["flex-1", className]}>
+          <slot />
+        </main>
+
+        <!-- <Footer /> -->
+      </div>
     </Sprite.Provider>
   </body>
 </html>

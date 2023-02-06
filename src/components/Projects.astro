@@ -1,14 +1,9 @@
 ---
 import type { Project } from "@src/types.js";
-import { reverse } from "@src/utils.js";
 import ProjectCard from "@components/ProjectCard.astro";
 import SectionTitle from "@components/SectionTitle.astro";
 
-// import { getProjects } from "@data/projects/index.js";
-
-// import projects from "@data/projects.json";
-
-const PROJECTS: Project[] = [
+const projects: Project[] = [
   {
     title: "Design System",
     tags: ["Web", "Mobile", "Figma", "TailwindCSS"],
@@ -91,10 +86,11 @@ const PROJECTS: Project[] = [
 ];
 ---
 
-<section class="relative bg-white">
-  <div id="work" class="mt-28 flex flex-col gap-48">
+<section id="work" class="relative flex flex-col items-center justify-center">
+  <SectionTitle title1="Selected" title2="Projects" />
+  <div class="mx-auto flex max-w-7xl flex-col gap-24 sm:gap-48">
     {
-      PROJECTS.map((project, i) => (
+      projects.map((project, i) => (
         <div>
           <ProjectCard key={i} project={project} reverse={i % 2 === 0} />
         </div>
