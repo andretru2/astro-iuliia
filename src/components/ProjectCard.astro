@@ -26,7 +26,7 @@ const { key, project } = Astro.props as Props;
     hidden={project.disabled}
     class="absolute inset-0 z-10"
     href={project.url?.href}
-    target="_self"
+    target={project.url?.href.includes("figma") ? "_blank" : "_self"}
   >
     <span class="sr-only">Learn more about {project.title}</span>
   </a>
