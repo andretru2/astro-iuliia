@@ -1,0 +1,38 @@
+---
+import SectionTitle from "../SectionTitle.astro";
+
+import Paragraph from "@components/Paragraph.astro";
+import Section from "@components/Section.astro";
+import BlobDouble from "@components/BlobDouble.astro";
+---
+
+<Section id="user-research">
+  <SectionTitle title1="User" title2="Research" />
+
+  <Paragraph>
+    The qualitative research method was chosen as the most reliable method to
+    achieve the following research objectives:
+  </Paragraph>
+  <Paragraph class="ml-8">
+    * Uncover participants' attitudes towards and thought processes around
+    utilizing micro-mobility services.
+  </Paragraph>
+  <Paragraph class="ml-8">
+    * Understand the process, and tools participants use for accessing
+    information about what micro-mobility services are in their area/available.
+  </Paragraph>
+  <Paragraph>
+    <b class="font-bold">Research questions</b> were aimed at learning about users'
+    interests, goals, and desires related to micro-mobility services.
+  </Paragraph>
+  <Paragraph>
+    <b class="font-bold">User surveys and interviews</b> effectively collected in-depth
+    information about people’s opinions, thoughts, experiences, and feelings when
+    using micro-mobility services.
+  </Paragraph>
+  <BlobDouble
+    class="absolute -z-10 bottom-5 right-20"
+    height={300}
+    width={300}
+  />
+</Section>

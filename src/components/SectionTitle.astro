@@ -9,20 +9,21 @@ interface Props {
 const {
   title1,
   title2,
-  alternate = true,
+  alternate,
   class: className,
+  ...props
 } = Astro.props as Props;
 ---
 
 <h1
   class:list={[
-    !alternate ? "text-white" : "text-inherit",
-    "my-16 font-syne text-2xl font-bold sm:my-28 sm:text-4xl",
+    alternate ? "text-white" : "text-grey-900",
+    "my-16 font-syne text-2xl font-bold sm:my-20 sm:text-4xl",
     className,
   ]}
 >
   {title1}
-  <span class:list={!alternate ? "text-white" : "text-designsystem"}
+  <span class:list={alternate ? "text-white" : "text-designsystem"}
     >{title2}</span
   >
 </h1>

@@ -13,7 +13,7 @@ const { hero = false } = Astro.props as Props;
 const links: Link[] = [
   {
     href: "#work",
-    text: "Work",
+    text: "Featured Work",
   },
   {
     href: "#about",
@@ -31,12 +31,12 @@ const links: Link[] = [
   <!-- <SkipToContent /> -->
   <div class="pt-10 text-sm font-light">
     <nav class="relative flex items-center justify-between" aria-label="Global">
-      <div class="flex flex-1 flex-col items-center gap-y-6 sm:flex-row">
+      <div class="mx-4 flex flex-1 flex-col items-center gap-y-6 sm:flex-row">
         <div class="flex w-full items-center justify-between md:w-auto">
           <a href="/" class="cursor-pointer" id="navlogo">
             <Logo />
           </a>
-          <div class="flex items-center sm:hidden">
+          <div class="flex items-center md:hidden">
             <button
               id="menubtn"
               type="button"
@@ -56,7 +56,7 @@ const links: Link[] = [
         <div
           id="menu"
           class:list={[
-            "flex flex-col gap-x-12 text-center sm:ml-auto sm:flex-row sm:gap-y-4 sm:text-left  ",
+            "flex flex-col gap-x-12 text-center sm:ml-auto sm:flex-row sm:gap-y-4 sm:text-left mr-4 lg:mr-0 ",
             !hero ? "hidden " : "block",
           ]}
         >

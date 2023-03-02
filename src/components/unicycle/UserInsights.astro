@@ -1,0 +1,43 @@
+---
+import SectionTitle from "../SectionTitle.astro";
+import Section from "@components/Section.astro";
+import ProcessCard from "@components/ProcessCard.astro";
+import Paragraph from "@components/Paragraph.astro";
+
+const data = [
+  {
+    title: "Safety",
+    desription:
+      "Users are concerned about safety and understanding of streets.",
+  },
+  {
+    title: "High barriers to entry",
+    desription:
+      "Users want easier access to micro-mobility services with low barriers to entry.",
+  },
+  {
+    title: "Low-cost",
+    desription: "Users prioritize cost-effective transportation.",
+  },
+];
+---
+
+<Section id="user-insights" alternate={false} class="sm:pb-20">
+  <SectionTitle title1="User" title2="Insights" />
+  <div
+    class="grid-col mx-auto grid max-w-xs gap-12 sm:max-w-7xl sm:grid-cols-3"
+  >
+    {
+      data.map((insight, index) => (
+        <ProcessCard
+          title={insight.title}
+          step={index + 1}
+          alternate={false}
+          iconTitle="Insight"
+        >
+          <Paragraph>{insight.desription}</Paragraph>
+        </ProcessCard>
+      ))
+    }
+  </div>
+</Section>

@@ -1,14 +1,31 @@
 ---
 import SectionTitle from "./SectionTitle.astro";
+// const data = [
+//   {
+//     title: "Conducting Research",
+//     desription:
+//       "Gathering insights about the problem, user behaviors, and business
+//         motivations.",
+//   },
+//   {
+//     title: "High barriers to entry",
+//     desription:
+//       "Users want easier access to micro-mobility services with low barriers to entry.",
+//   },
+//   {
+//     title: "Low-cost",
+//     desription: "Users prioritize cost-effective transportation.",
+//   },
+// ];
 ---
 
 <section
   id="process"
-  class="wavy relative flex w-screen flex-col items-center justify-center bg-designsystem px-0 pb-28 sm:mt-20"
+  class="wavy relative mb-6 flex w-screen flex-col items-center justify-center bg-designsystem px-0 pb-28 sm:my-36"
 >
-  <SectionTitle title1="My" title2="Process" alternate={false} />
+  <SectionTitle title1="My" title2="Process" alternate={true} />
   <div
-    class="grid-col mx-auto grid max-w-xs gap-12 sm:max-w-7xl sm:grid-cols-3 [&>div]:bg-designsystem-800/20"
+    class="grid-col mx-auto mt-6 grid max-w-xs gap-12 sm:max-w-7xl sm:grid-cols-3 [&>div]:bg-designsystem-800/20"
   >
     <div class="flex flex-col gap-4 rounded-sm p-12">
       <svg

@@ -1,0 +1,48 @@
+---
+import SectionTitle from "../SectionTitle.astro";
+import { Image, Picture } from "@astrojs/image/components";
+import { getImage } from "@astrojs/image";
+import Paragraph from "@components/Paragraph.astro";
+import Section from "@components/Section.astro";
+
+const competitor = await getImage({
+  src: "public/images/unicycle-competitor-analysis.jpg",
+  width: 2600,
+  height: 1300,
+  aspectRatio: 16 / 9,
+  format: "jpeg",
+  alt: "competitor",
+});
+---
+
+<Section id="competitor">
+  <SectionTitle title1="Competitor" title2="Analysis" />
+  <Image
+    src={competitor}
+    class="mb-2 rounded-sm scale-90 overflow-visible -translate-y-12"
+  />
+  <!-- <Picture
+    src={"public/images/unicycle-competitor-analysis.png"}
+    class="my-24 rounded-sm overflow-visible"
+    alt="competior-analysis"
+    aspectRatio={16 9}
+  /> -->
+  <Paragraph>
+    We reviewed existing micro-mobility competitors with various features on
+    their mobile apps.
+  </Paragraph>
+  <Paragraph>
+    These features included
+    <b class="font-bold">
+      real-time vehicle availability information, trip planning and navigation,
+      safety features, in-app payment options, ride tracking, and in-app
+      feedback.
+    </b>
+  </Paragraph>
+  <Paragraph>
+    By offering these features, micro-mobility companies are improving <b
+      >the user experience
+    </b> and making it easier for people to adopt and use alternative modes of transportation.
+  </Paragraph>
+  <div class="relative flex flex-col items-center justify-center gap-4"></div>
+</Section>

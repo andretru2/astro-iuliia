@@ -1,4 +1,15 @@
 ---
+import { getImage } from "@astrojs/image";
+import { Image } from "@astrojs/image/components";
+
+const hero = await getImage({
+  src: "public/images/unicycle-hero.png",
+  width: 3000,
+  height: 2000,
+  aspectRatio: 16 / 9,
+  format: "jpeg",
+  alt: "hero",
+});
 ---
 
 <section
@@ -92,3 +103,4 @@
       fill="#DBEAFE"></path>
   </svg>
 </section>
+<Image src={hero} alt="hero" class="my-48 rounded-sm" />
