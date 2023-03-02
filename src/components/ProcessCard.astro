@@ -1,0 +1,41 @@
+---
+import MapIcon from "./MapIcon.astro";
+
+interface Props {
+  iconTitle?: string;
+  step?: number;
+  title: string;
+  // background?: string;
+  class?: string;
+  alternate?: boolean;
+}
+
+const {
+  step,
+  title,
+  class: className = "",
+  alternate,
+  iconTitle = "Step",
+} = Astro.props as Props;
+---
+
+<div
+  class:list={[
+    "relative flex flex-col gap-4 rounded-sm p-12 shadow-sm",
+    className,
+    alternate
+      ? "text-white bg-designsystem-800/20"
+      : "text-gray-900 bg-gray-50",
+  ]}
+>
+  <MapIcon stroke={alternate ? "white" : "#3368FF"} />
+  <div class:list={["my-2", alternate ? "text-white" : "text-designsystem"]}>
+    {iconTitle}
+    {step}
+  </div>
+
+  <h2 class="font-syne text-2xl font-semibold">
+    {title}
+  </h2>
+  <slot />
+</div>

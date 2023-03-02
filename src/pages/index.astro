@@ -27,7 +27,9 @@ import ProjectInMind from "@components/ProjectInMind.astro";
     class="relative mt-28 w-full overflow-hidden bg-[#263F99] p-12 shadow-md"
   >
     <div class="mx-auto flex max-w-xs flex-col gap-4 sm:max-w-7xl">
-      <h1 class="text-2xl font-semibold text-white sm:text-3xl">{site.name}</h1>
+      <h1 class="text-2xl font-semibold text-white sm:text-3xl">
+        {site.name.toLowerCase()}
+      </h1>
       <a
         href=`mailto:${site.email}?Subject=Let%27s talk about`
         class="text-lg text-white">{site.email}</a

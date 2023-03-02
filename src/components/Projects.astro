@@ -5,10 +5,10 @@ import SectionTitle from "@components/SectionTitle.astro";
 
 const projects: Project[] = [
   {
-    title: "Design System",
+    title: "Design System  ",
     tags: ["Web", "Mobile", "Figma", "TailwindCSS"],
     description:
-      "Constructed a robust library of polished, production-ready reusable UI components with specifications and documentation as part of a scalable Design System.",
+      "Constructed a robust library of polished, production-ready, ADA-compliant, reusable UI components with specifications and documentation for Britannica Home Fashions Inc.",
     image: {
       src: "images/design-system-showcase.mp4",
       alt: "designsystem",
@@ -87,9 +87,12 @@ const projects: Project[] = [
 ];
 ---
 
-<section id="work" class="relative flex flex-col items-center justify-center">
-  <SectionTitle title1="Selected" title2="Projects" />
-  <div class="mx-auto flex max-w-7xl flex-col gap-24 sm:gap-48">
+<section
+  id="work"
+  class="relative flex -translate-y-40 flex-col items-center justify-center"
+>
+  <SectionTitle title1="Featured" title2="Work" />
+  <div class="mx-auto mt-12 flex max-w-7xl flex-col gap-24 sm:gap-36">
     {
       projects.map((project, i) => (
         <div>

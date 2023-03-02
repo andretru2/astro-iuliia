@@ -1,0 +1,83 @@
+---
+import Paragraph from "@components/Paragraph.astro";
+import Section from "@components/Section.astro";
+import SectionTitle from "@components/SectionTitle.astro";
+import { getImage } from "@astrojs/image";
+import { Image } from "@astrojs/image/components";
+
+const user = {
+  name: "Daniel Howard",
+  age: 32,
+  city: "Queens, NY",
+  occupation: "Student teacher",
+};
+
+const data = [
+  {
+    title: "Pains",
+    desription: [
+      "Doesn’t like to depend on public transportation services",
+      "Doesn’t feel safe riding subways at night",
+      "Has to travel to school and work from home but can’t access a common subway line",
+      "Doesn’t want to buy/own a bike (no indoor storage and concerns about theft)",
+    ],
+  },
+  {
+    title: "Wants",
+    desription: [
+      "...to avoid taking subways when he goes to work",
+      "...to have high mobility and not to be limited to public transportation routes",
+      "...to have convenient transportation options ",
+    ],
+  },
+  {
+    title: "Interests",
+    desription: [
+      "Cares about fitness/exercise; enjoys working out",
+      "Enjoys exploring NYC",
+      "Cares about the environment/climate change",
+    ],
+  },
+];
+
+const image = await getImage({
+  src: "public/images/unicycle-user-persona.jpg",
+  width: 311,
+  height: 378,
+  aspectRatio: 1,
+  format: "jpeg",
+  alt: "user-persona",
+});
+---
+
+<Section id="competitor" alternate={false} class="">
+  <SectionTitle title1="User" title2="Persona" alternate={false} />
+
+  <div
+    class="grid-col mx-auto grid max-w-xs gap-12 sm:max-w-7xl sm:grid-cols-2"
+  >
+    <div class="flex flex-col items-center gap-4 p-8">
+      <Image src={image} />
+      <div class="font-bold">
+        {user.name}, {" "}
+        <span class="">{user.age}</span>
+      </div>
+
+      <div class="">{user.city}</div>
+      <div class="">{user.occupation}</div>
+    </div>
+
+    {
+      data.map((data, index) => (
+        <div
+          class:list={[
+            "relative flex flex-col gap-4 rounded-sm p-12 shadow-sm  max-w-4xl mx-auto bg-gray-100 ",
+          ]}
+        >
+          <h2 class="font-syne text-2xl font-semibold ">{data.title}</h2>
+          <Paragraph class="">{data.desription}</Paragraph>
+        </div>
+      ))
+    }
+  </div>
+</Section>

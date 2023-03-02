@@ -1,0 +1,43 @@
+---
+import SectionTitle from "./SectionTitle.astro";
+
+interface Props {
+  id: any;
+  alternate?: boolean;
+  class?: string;
+}
+
+const { id, alternate, class: className, ...props } = Astro.props as Props;
+---
+
+<section
+  id={id}
+  class:list={[
+    "relative flex flex-col items-center justify-center gap-4 sm:my-20 ",
+    alternate ? "bg-designsystem" : "bg-white",
+    className,
+  ]}
+>
+  <!-- <SectionTitle title={props.title} {...props} /> -->
+  <slot />
+</section>
+
+<style>
+  .wavy2 {
+    /* mask created with 
+  https://css-generators.com/wavy-shapes/ */
+
+    background: linear-gradient(to right, #3368ff, #0575e6);
+
+    --mask: radial-gradient(496.41px at 50% 666px, #000 99%, #0000 101%)
+        calc(50% - 444px) 0/888px 51% repeat-x,
+      radial-gradient(496.41px at 50% -444px, #0000 99%, #000 101%) 50% 222px/888px
+        calc(51% - 222px) repeat-x,
+      radial-gradient(496.41px at 50% calc(100% - 666px), #000 99%, #0000 101%)
+        calc(50% - 444px) 100%/888px 51% repeat-x,
+      radial-gradient(496.41px at 50% calc(100% + 444px), #0000 99%, #000 101%)
+        50% calc(100% - 222px) / 888px calc(51% - 222px) repeat-x;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
+  }
+</style>
