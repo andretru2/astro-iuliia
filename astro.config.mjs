@@ -11,14 +11,19 @@ import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), sitemap(), image({
-    serviceEntryPoint: "@astrojs/image/sharp"
-  }), partytown()],
+  integrations: [
+    tailwind(),
+    sitemap(),
+    image({
+      serviceEntryPoint: "@astrojs/image/sharp",
+    }),
+    partytown(),
+  ],
   vite: {
     ssr: {
-      external: ["svgo"]
-    }
+      external: ["svgo"],
+    },
   },
   output: "server",
-  adapter: netlify()
+  adapter: netlify(),
 });
