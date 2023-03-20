@@ -19,11 +19,11 @@ export default defineConfig({
     }),
     partytown(),
   ],
-  vite: {
-    ssr: {
-      external: ["svgo"],
-    },
-  },
+  // vite: {
+  //   ssr: {
+  //     external: ["svgo"],
+  //   },
+  // },
   output: "server",
   adapter: netlify(),
 });
