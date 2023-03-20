@@ -20,7 +20,7 @@ const { key, project } = Astro.props as Props;
 
 <article
   id={key}
-  class:list={[" relative isolate max-w-xs sm:max-w-7xl mx-auto rounded-sm "]}
+  class:list={[" relative isolate  sm:max-w-7xl mx-auto rounded-sm "]}
 >
   <a
     hidden={project.disabled}
@@ -62,7 +62,6 @@ const { key, project } = Astro.props as Props;
           class:list={[
             "video small:preserve3d h-60 sm:h-max sm:max-h-[35rem] ",
           ]}
-          controls
           autoplay
           loop
         >
