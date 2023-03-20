@@ -1,0 +1,38 @@
+---
+import SectionTitle from "../SectionTitle.astro";
+import Section from "@components/Section.astro";
+import { getImage } from "@astrojs/image";
+import { Image } from "@astrojs/image/components";
+
+const image1 = await getImage({
+  src: "/images/unicycle-high-fidelity-1.jpg",
+  width: 1280,
+  height: 1000,
+  aspectRatio: 16 / 9,
+  format: "jpeg",
+  alt: "high-fidelity-1",
+});
+const image2 = await getImage({
+  src: "/images/unicycle-high-fidelity-2.jpg",
+  width: 1280,
+  height: 1000,
+  aspectRatio: 16 / 9,
+  format: "jpeg",
+  alt: "high-fidelity-1",
+});
+const image3 = await getImage({
+  src: "/images/unicycle-high-fidelity-3.jpg",
+  width: 1280,
+  height: 1000,
+  aspectRatio: 16 / 9,
+  format: "jpeg",
+  alt: "high-fidelity-1",
+});
+---
+
+<Section id="high-fidelity" alternate={false} class="">
+  <SectionTitle title1="High" title2="Fidelity Mockups" />
+  <Image src={image1} />
+  <Image src={image2} />
+  <Image src={image3} />
+</Section>

@@ -1,0 +1,41 @@
+---
+import SectionTitle from "../SectionTitle.astro";
+
+import Paragraph from "@components/Paragraph.astro";
+import Section from "@components/Section.astro";
+import BlobDouble from "@components/BlobDouble.astro";
+import { getImage } from "@astrojs/image";
+import { Image } from "@astrojs/image/components";
+
+const image = await getImage({
+  src: "/images/unicycle-usability-testing.jpg",
+  width: 960,
+  height: 540,
+  aspectRatio: 16 / 9,
+  format: "jpeg",
+  alt: "usability-testing",
+});
+---
+
+<Section id="mid-fidelity">
+  <SectionTitle title1="Mid-Fidelity Usability" title2="Testing" />
+  <h1 class="mb-4 text-2xl font-bold">Testing Goals</h1>
+  <div class="flex flex-col gap-2">
+    <Paragraph>• Understand how users interact with the product.</Paragraph>
+    <Paragraph class="">
+      • Assess how well can users choose and unlock a nearby micro-mobility
+      service and navigate a route that exclusively uses protected bike paths?
+    </Paragraph>
+    <Paragraph class="">
+      • Gather honest user feedback to identify potential application issues.
+    </Paragraph>
+  </div>
+  <h1 class="mt-20 text-2xl font-bold">Usability Testing Results</h1>
+  <Image src={image} class="" />
+
+  <BlobDouble
+    class="absolute -z-10 bottom-5 right-20"
+    height={300}
+    width={300}
+  />
+</Section>

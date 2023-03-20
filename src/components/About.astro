@@ -1,9 +1,10 @@
 ---
 import SectionTitle from "@components/SectionTitle.astro";
+import Section from "./Section.astro";
 import Skills from "@components/Skills.astro";
 ---
 
-<section id="about" class="relative flex flex-col items-center justify-center">
+<Section id="about" class="">
   <SectionTitle title1="About" title2="Me" />
   <svg
     class="h-72 w-72 -translate-y-32 sm:mt-12 sm:h-max sm:w-max sm:translate-y-0"
@@ -110,4 +111,4 @@ import Skills from "@components/Skills.astro";
       z-index: -10;
     }
   </style>
-</section>
+</Section>

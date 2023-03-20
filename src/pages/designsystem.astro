@@ -7,6 +7,7 @@ import site from "@src/data/site.js";
 // import Logo from "@src/components/Logo.astro";
 
 import { Sprite } from "astro-icon";
+import FooterProjects from "@components/FooterProjects.astro";
 
 const hero = await getImage({
   src: "images/design-system-hero.png",
@@ -9370,28 +9371,5 @@ const final = await getImage({
     </div>
   </section>
 
-  <footer class="my-36 flex flex-col items-center justify-center">
-    <h1 class="font-syne text-4xl font-bold">
-      Have a <span class="text-designsystem">Project&nbsp;</span><span class=""
-        >in mind?</span
-      >
-    </h1>
-    <a class="align-center flex flex-col items-center">
-      <a
-        href=`mailto:${site.email}?Subject=Let%27s talk about`
-        class="align-center mt-24 flex h-64 w-64 flex-col items-center justify-center rounded-full bg-gradient-to-tr from-designsystem-500 to-designsystem-800/70 text-2xl font-bold text-white hover:bg-slate-200"
-        >Let's talk about it!</a
-      >
-
-      <div class="mt-48 flex flex-row gap-12">
-        <a
-          href="/"
-          class="flex items-center gap-2 rounded-sm bg-slate-200 px-8 py-4 transition-colors duration-200 hover:bg-slate-300"
-        >
-          <Sprite pack="ic" name="round-arrow-back" size={24} />
-          <span class="">Go back</span>
-        </a>
-      </div>
-    </a>
-  </footer>
+  <FooterProjects projectUrl="/unicycle" />
 </Layout>

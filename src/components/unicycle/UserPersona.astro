@@ -14,25 +14,24 @@ const user = {
 
 const data = [
   {
-    title: "Pains",
-    desription: [
+    title: "😫 Pains",
+    description: [
       "Doesn’t like to depend on public transportation services",
       "Doesn’t feel safe riding subways at night",
       "Has to travel to school and work from home but can’t access a common subway line",
-      "Doesn’t want to buy/own a bike (no indoor storage and concerns about theft)",
     ],
   },
   {
-    title: "Wants",
-    desription: [
+    title: "🥹 Wants",
+    description: [
       "...to avoid taking subways when he goes to work",
       "...to have high mobility and not to be limited to public transportation routes",
       "...to have convenient transportation options ",
     ],
   },
   {
-    title: "Interests",
-    desription: [
+    title: "🧐 Interests",
+    description: [
       "Cares about fitness/exercise; enjoys working out",
       "Enjoys exploring NYC",
       "Cares about the environment/climate change",
@@ -50,13 +49,11 @@ const image = await getImage({
 });
 ---
 
-<Section id="competitor" alternate={false} class="">
+<Section id="user-persona" alternate={false} class="">
   <SectionTitle title1="User" title2="Persona" alternate={false} />
 
-  <div
-    class="grid-col mx-auto grid max-w-xs gap-12 sm:max-w-7xl sm:grid-cols-2"
-  >
-    <div class="flex flex-col items-center gap-4 p-8">
+  <div class="grid-col mx-auto grid max-w-xs gap-4 sm:max-w-7xl sm:grid-cols-3">
+    <div class="col-span-3 mb-4 flex flex-col items-center gap-4">
       <Image src={image} />
       <div class="font-bold">
         {user.name}, {" "}
@@ -75,7 +72,9 @@ const image = await getImage({
           ]}
         >
           <h2 class="font-syne text-2xl font-semibold ">{data.title}</h2>
-          <Paragraph class="">{data.desription}</Paragraph>
+          {data.description.map((item) => (
+            <Paragraph class="">• {item}</Paragraph>
+          ))}
         </div>
       ))
     }

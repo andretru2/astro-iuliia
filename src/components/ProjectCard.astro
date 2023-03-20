@@ -30,7 +30,10 @@ const { key, project } = Astro.props as Props;
   >
     <span class="sr-only">Learn more about {project.title}</span>
   </a>
-  <div class:list={["sm:card sm:tilt sm:preserve3d grid grid-flow-row gap-8 "]}>
+  <div
+    id={key + "-card"}
+    class:list={["sm:card sm:tilt sm:preserve3d grid grid-flow-row gap-8 "]}
+  >
     <div class:list={[" flex flex-col  "]}>
       <h1
         class="title small:preserve3d h-fit pb-4 font-syne text-2xl font-bold text-gray-900 line-clamp-3 sm:text-4xl"
@@ -53,12 +56,13 @@ const { key, project } = Astro.props as Props;
       </p>
 
       <div
-        class="mt-6 flex w-full items-center justify-center rounded-sm bg-slate-50 py-6 px-3 shadow-xl sm:py-10 sm:px-8"
+        class="mt-6 flex w-full items-center justify-center rounded-sm bg-none py-6 px-3 shadow-xl sm:py-10 sm:px-8"
       >
         <video
           class:list={[
             "video small:preserve3d h-60 sm:h-max sm:max-h-[35rem] ",
           ]}
+          controls
           autoplay
           loop
         >
@@ -109,9 +113,15 @@ const { key, project } = Astro.props as Props;
   }
 </style>
 
-<script define:vars={{ key }}>
+<script is:inline define:vars={{ key }}>
   const article = document.getElementById(key);
-  const card = article.querySelector(".card");
+  // const article = document.querySelectorAll(key);
+  // const article = document.querySelectorAll(`#${key}`);
+  // console.log(article);
+  // const article = document.getElementById(`#${key}`);
+
+  // const card = article.querySelector(".card");
+  const card = document.getElementById(key + "-card");
   const video = article.querySelector(".video");
   const title = article.querySelector(".title");
   const tag = article.querySelector(".tag");
@@ -120,6 +130,9 @@ const { key, project } = Astro.props as Props;
   video.playbackRate = 0.5;
 
   article?.addEventListener("mousemove", (e) => {
+    console.log(key);
+    console.log(article);
+    console.log(card);
     let x = (window.innerWidth / 2 - e.pageX) / 90;
     let y = (window.innerHeight / 2 - e.pageY) / 180;
     // x = 3;
