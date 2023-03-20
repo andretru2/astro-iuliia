@@ -1,0 +1,104 @@
+---
+import SectionTitle from "../SectionTitle.astro";
+import Section from "@components/Section.astro";
+import { getImage } from "@astrojs/image";
+import { Image } from "@astrojs/image/components";
+import Paragraph from "@components/Paragraph.astro";
+
+const data = [
+  {
+    image: {
+      src: "images/unicycle-measuring-success-app-donwnloads.jpg",
+      alt: "app-downloads",
+    },
+
+    title: "App Downloads",
+    description: "How many users decide to download uniCycle",
+    backgroundColor: "#A5F0FF",
+  },
+  {
+    image: {
+      src: "images/unicycle-measuring-success-click.jpg",
+      alt: "click-through-rate",
+    },
+
+    title: "Click-Through Rate",
+    description: "How many users download uniCycle through our website",
+    backgroundColor: "#A5F0FF",
+  },
+  {
+    image: {
+      src: "images/unicycle-measuring-success-active-users.jpg",
+      alt: "active-users",
+    },
+
+    title: "Active Users",
+    description:
+      "How many users use uniCycle to reserve rides daily, weekly and monthly",
+    backgroundColor: "#A5F0FF",
+  },
+  {
+    image: {
+      src: "images/unicycle-measuring-success-monetization.jpg",
+      alt: "monetization-strategy",
+    },
+
+    title: "Monetization ",
+    description:
+      "How much commission is received from external brands when users are using their devices through uniCycle",
+    backgroundColor: "#A5F0FF",
+  },
+  {
+    image: {
+      src: "images/unicycle-measuring-success-in-app-feedback.jpg",
+      alt: "in-app-feedback",
+    },
+
+    title: "In-App Feedback",
+    description:
+      "How often users use our in-app feedback system to quickly rate their ride experience",
+    backgroundColor: "#A5F0FF",
+  },
+  {
+    image: {
+      src: "images/unicycle-measuring-success-conversion.jpg",
+      alt: "conversion-rate",
+    },
+
+    title: "Conversion Rate",
+    description:
+      "How many users actually reserve a ride after opening uniCycle for the first time",
+    backgroundColor: "#A5F0FF",
+  },
+];
+---
+
+<Section id="measuring-success" alternate={false} class="">
+  <SectionTitle title1="Measuring" title2="Succcess" />
+  <div
+    class="mx-auto grid max-w-5xl grid-cols-3 justify-center gap-4 text-center"
+  >
+    {
+      data.map((data, index) => (
+        <div
+          class:list={[
+            "relative flex flex-col gap-4 rounded-sm p-8 ",
+            // "bg-[#A5F0FF]",
+            // `bg-[${data.backgroundColor}]`,
+          ]}
+        >
+          <Image
+            class="self-center"
+            src={data.image.src}
+            alt={data.image.alt}
+            width={140}
+            height={140}
+          />
+
+          <h2 class="font-syne text-2xl font-semibold ">{data.title}</h2>
+          <Paragraph class="">{data.description}</Paragraph>
+        </div>
+      ))
+    }
+  </div>
+</Section>

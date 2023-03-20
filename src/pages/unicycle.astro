@@ -1,10 +1,5 @@
 ---
 import Layout from "@layouts/Layout.astro";
-
-import { Image } from "@astrojs/image/components";
-import { getImage } from "@astrojs/image";
-import site from "@src/data/site.js";
-import { Sprite } from "astro-icon";
 import Hero from "@components/unicycle/Hero.astro";
 import ProjectOverview from "@components/unicycle/ProjectOverview.astro";
 import CompetitorAnalysis from "@components/unicycle/CompetitorAnalysis.astro";
@@ -13,9 +8,21 @@ import AffinityDiagram from "@components/unicycle/AffinityDiagram.astro";
 import UserInsights from "@components/unicycle/UserInsights.astro";
 import EmpathyMap from "@components/unicycle/EmpathyMap.astro";
 import UserPersona from "@components/unicycle/UserPersona.astro";
+import FeaturePrioritization from "@components/unicycle/FeaturePrioritization.astro";
+import UserFlow from "@components/unicycle/UserFlow.astro";
+import LowFidelity from "@components/unicycle/LowFidelity.astro";
+import MidFidelity from "@components/unicycle/MidFidelity.astro";
+import StyleGuide from "@components/unicycle/StyleGuide.astro";
+import HighFidelityMockup from "@components/unicycle/HighFidelityMockup.astro";
+import HighFidelityPrototype from "@components/unicycle/HighFidelityPrototype.astro";
+import MeasuringSuccess from "@components/unicycle/MeasuringSuccess.astro";
+import FooterProjects from "@components/FooterProjects.astro";
 ---
 
-<Layout hero={false} class="text-gray-900 text-xl font-poppins">
+<Layout
+  hero={false}
+  class="text-gray-900 text-xl font-poppins flex flex-col gap-4"
+>
   <Hero />
   <ProjectOverview />
   <CompetitorAnalysis />
@@ -24,4 +31,15 @@ import UserPersona from "@components/unicycle/UserPersona.astro";
   <UserInsights />
   <EmpathyMap />
   <UserPersona />
+  <FeaturePrioritization />
+  <UserFlow />
+  <LowFidelity />
+  <MidFidelity />
+  <StyleGuide />
+  <HighFidelityMockup />
+  <HighFidelityPrototype />
+  <MeasuringSuccess />
+  <FooterProjects
+    projectUrl="https://www.figma.com/file/gYbW62NSt4eessEW8oiga8/Jupo-Case-Studyo"
+  />
 </Layout>

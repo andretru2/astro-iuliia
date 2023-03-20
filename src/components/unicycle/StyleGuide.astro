@@ -1,0 +1,20 @@
+---
+import SectionTitle from "../SectionTitle.astro";
+import Section from "@components/Section.astro";
+import { getImage } from "@astrojs/image";
+import { Image } from "@astrojs/image/components";
+
+const image = await getImage({
+  src: "/images/unicycle-ui-guide.jpg",
+  width: 1300,
+  height: 600,
+  aspectRatio: 16 / 9,
+  format: "jpeg",
+  alt: "ui-guide",
+});
+---
+
+<Section id="ui-guide" alternate={false} class="">
+  <SectionTitle title1="Style" title2="Guide" />
+  <Image src={image} />
+</Section>

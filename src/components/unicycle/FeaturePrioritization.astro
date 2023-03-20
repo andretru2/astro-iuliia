@@ -1,0 +1,53 @@
+---
+import Paragraph from "@components/Paragraph.astro";
+import Section from "@components/Section.astro";
+import SectionTitle from "@components/SectionTitle.astro";
+
+const data = [
+  {
+    title: "Selecting a Device",
+    description: [
+      "See mileage of specific device",
+      "Battery life %",
+      "One place to find all the app services information",
+    ],
+  },
+  {
+    title: "Routing a Path",
+    description: [
+      "Route mapping feature ",
+      "Encouragement to use protected bike lanes for safety",
+      "Route customization to feel prepared to embark on their ride",
+    ],
+  },
+  {
+    title: "User Profile",
+    description: [
+      "User profile that tracks environmental impact and calories burned",
+      "Unified payment system",
+      "Summary of your accounts with different services",
+    ],
+  },
+];
+---
+
+<Section id="feature-prioritization" alternate={true} class="">
+  <SectionTitle title1="Feature" title2="Prioritization" alternate={true} />
+
+  <div class="grid-row mx-auto grid max-w-3xl grid-cols-3 gap-3 sm:max-w-7xl">
+    {
+      data.map((data, index) => (
+        <div
+          class:list={[
+            "relative flex flex-col gap-4 rounded-sm p-12 shadow-sm text-white max-w-4xl mx-auto bg-designsystem-800/20 ",
+          ]}
+        >
+          <h2 class="font-syne text-2xl font-semibold ">{data.title}</h2>
+          {data.description.map((item) => (
+            <Paragraph class="text-gray-50">• {item}</Paragraph>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+</Section>

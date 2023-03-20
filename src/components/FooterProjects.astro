@@ -1,0 +1,33 @@
+---
+import { Sprite } from "astro-icon";
+import site from "@data/site";
+import ProjectInMind from "./ProjectInMind.astro";
+
+interface Props {
+  projectUrl: string;
+}
+
+const { projectUrl } = Astro.props as Props;
+---
+
+<footer class="my-12 flex flex-col items-center justify-center gap-32">
+  <ProjectInMind />
+
+  <div class="flex flex-row gap-12">
+    <a
+      href="/"
+      class="flex items-center gap-2 rounded-sm bg-slate-200 px-8 py-4 transition-colors duration-200 hover:bg-slate-300"
+    >
+      <Sprite pack="ic" name="round-arrow-back" size={24} />
+      <span class="">Go back</span>
+    </a>
+    <a
+      href={projectUrl}
+      target={projectUrl.includes("figma") ? "_blank" : "_self"}
+      class="flex items-center gap-2 rounded-sm bg-slate-200 px-8 py-4 transition-colors duration-200 hover:bg-slate-300"
+    >
+      <span class="">Next Project</span>
+      <Sprite pack="ic" name="round-arrow-forward" size={24} />
+    </a>
+  </div>
+</footer>
